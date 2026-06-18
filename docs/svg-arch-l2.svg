@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" fill="none" role="img" aria-label="L2 Control Plane">
+  <style>
+    /* Transparent background — adapts to GitHub light/dark theme. */
+    svg { color-scheme: light dark; --ink: 255, 255, 255; }
+    @media (prefers-color-scheme: light) { svg { --ink: 30, 32, 44; } }
+
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", sans-serif; }
+    .arch-l2-orch-t { fill: rgba(var(--ink), 0.78); font-size: 8px; font-weight: 700; letter-spacing: 0.08em; }
+    .arch-l2-conn { fill: rgba(var(--ink), 0.65); animation: archFlicker 2s ease-in-out infinite; }
+    .arch-l2-wire { stroke: rgba(var(--ink), 0.55); stroke-width: 1.5; stroke-linecap: round; stroke-dasharray: 3 3; animation: archFlow 0.7s linear infinite; }
+    .arch-l2-node { fill: rgba(var(--ink), 0.05); stroke: rgba(var(--ink), 0.2); stroke-width: 1; }
+    .arch-l2-node-brand { fill: rgba(247,148,29,0.18); stroke: #f7941d; stroke-opacity: 0.65; }
+    .arch-l2-bar { fill: rgba(var(--ink), 0.58); transform-box: fill-box; transform-origin: center bottom; animation: archBarFill 2.2s ease-in-out infinite; }
+    .arch-l2-bar-brand { fill: rgba(247,148,29,0.75); }
+    @keyframes archFlicker { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+    @keyframes archFlow { to { stroke-dashoffset: -6; } }
+    @keyframes archBarFill { 0%, 100% { transform: scaleY(0.3); opacity: 0.45; } 50% { transform: scaleY(1); opacity: 0.95; } }
+  </style>
+
+  <text class="arch-l2-orch-t" x="20" y="14">CONTROL PLANE</text>
+  <circle class="arch-l2-conn" cx="80" cy="23" r="3" style="animation-delay:0s" />
+  <circle class="arch-l2-conn" cx="160" cy="23" r="3" style="animation-delay:0.3s" />
+  <circle class="arch-l2-conn" cx="240" cy="23" r="3" style="animation-delay:0.6s" />
+  <line class="arch-l2-wire" x1="80" y1="34" x2="80" y2="44" />
+  <line class="arch-l2-wire" x1="160" y1="34" x2="160" y2="44" />
+  <line class="arch-l2-wire" x1="240" y1="34" x2="240" y2="44" />
+
+  <!-- Node 0 -->
+  <g>
+    <rect class="arch-l2-node" x="20" y="44" width="84" height="66" rx="10" />
+    <rect class="arch-l2-bar" x="32" y="58" width="12" height="40" rx="2" style="animation-delay:0s" />
+    <rect class="arch-l2-bar" x="48" y="58" width="12" height="40" rx="2" style="animation-delay:0.5s" />
+    <rect class="arch-l2-bar" x="64" y="58" width="12" height="40" rx="2" style="animation-delay:1s" />
+    <rect class="arch-l2-bar" x="80" y="58" width="12" height="40" rx="2" style="animation-delay:1.5s" />
+  </g>
+  <!-- Node 1 (brand) -->
+  <g>
+    <rect class="arch-l2-node arch-l2-node-brand" x="118" y="44" width="84" height="66" rx="10" />
+    <rect class="arch-l2-bar arch-l2-bar-brand" x="130" y="58" width="12" height="40" rx="2" style="animation-delay:0.2s" />
+    <rect class="arch-l2-bar arch-l2-bar-brand" x="146" y="58" width="12" height="40" rx="2" style="animation-delay:0.7s" />
+    <rect class="arch-l2-bar arch-l2-bar-brand" x="162" y="58" width="12" height="40" rx="2" style="animation-delay:0.1s" />
+    <rect class="arch-l2-bar arch-l2-bar-brand" x="178" y="58" width="12" height="40" rx="2" style="animation-delay:0.6s" />
+  </g>
+  <!-- Node 2 -->
+  <g>
+    <rect class="arch-l2-node" x="216" y="44" width="84" height="66" rx="10" />
+    <rect class="arch-l2-bar" x="228" y="58" width="12" height="40" rx="2" style="animation-delay:0.4s" />
+    <rect class="arch-l2-bar" x="244" y="58" width="12" height="40" rx="2" style="animation-delay:0.9s" />
+    <rect class="arch-l2-bar" x="260" y="58" width="12" height="40" rx="2" style="animation-delay:0.3s" />
+    <rect class="arch-l2-bar" x="276" y="58" width="12" height="40" rx="2" style="animation-delay:0.8s" />
+  </g>
+</svg>

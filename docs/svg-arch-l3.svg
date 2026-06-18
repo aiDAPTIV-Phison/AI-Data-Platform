@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" fill="none" role="img" aria-label="L3 Open Source Stack">
+  <style>
+    /* Transparent background — adapts to GitHub light/dark theme. */
+    svg { color-scheme: light dark; --ink: 255, 255, 255; }
+    @media (prefers-color-scheme: light) { svg { --ink: 30, 32, 44; } }
+
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", sans-serif; }
+    .arch-l3-cap { fill: rgba(var(--ink), 0.65); font-size: 8px; font-weight: 700; letter-spacing: 0.1em; }
+    .arch-l3-cell { fill: rgba(var(--ink), 0.06); stroke: rgba(var(--ink), 0.22); stroke-width: 1; animation: archFlicker 2.2s ease-in-out infinite; }
+    .arch-l3-wire { stroke: rgba(var(--ink), 0.55); stroke-width: 1.5; stroke-linecap: round; stroke-dasharray: 3 3; animation: archFlow 0.75s linear infinite; }
+    .arch-l3-wire-bus { stroke: rgba(247,148,29,0.55); stroke-width: 1.75; }
+    .arch-l3-junction { fill: #f7941d; opacity: 0.85; }
+    @keyframes archFlicker { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+    @keyframes archFlow { to { stroke-dashoffset: -6; } }
+  </style>
+
+  <text class="arch-l3-cap" x="20" y="18">OPEN SOURCE · STACK</text>
+
+  <!-- Row 1 -->
+  <rect class="arch-l3-cell" x="20" y="28" width="96" height="36" rx="8" style="animation-delay:0s" />
+  <rect class="arch-l3-cell" x="108" y="28" width="96" height="36" rx="8" style="animation-delay:0.2s" />
+  <rect class="arch-l3-cell" x="196" y="28" width="96" height="36" rx="8" style="animation-delay:0.4s" />
+  <!-- Row 2 -->
+  <rect class="arch-l3-cell" x="20" y="72" width="96" height="36" rx="8" style="animation-delay:0.15s" />
+  <rect class="arch-l3-cell" x="108" y="72" width="96" height="36" rx="8" style="animation-delay:0.35s" />
+  <rect class="arch-l3-cell" x="196" y="72" width="96" height="36" rx="8" style="animation-delay:0.55s" />
+
+  <!-- Wire fabric -->
+  <g>
+    <path class="arch-l3-wire" d="M 68 46 H 244" />
+    <path class="arch-l3-wire" d="M 68 90 H 244" />
+    <path class="arch-l3-wire arch-l3-wire-bus" d="M 68 64 H 244" />
+    <path class="arch-l3-wire" d="M 68 46 V 90" />
+    <path class="arch-l3-wire" d="M 156 46 V 90" />
+    <path class="arch-l3-wire" d="M 244 46 V 90" />
+    <circle class="arch-l3-junction" cx="68" cy="64" r="3" />
+    <circle class="arch-l3-junction" cx="156" cy="64" r="3" />
+    <circle class="arch-l3-junction" cx="244" cy="64" r="3" />
+  </g>
+</svg>

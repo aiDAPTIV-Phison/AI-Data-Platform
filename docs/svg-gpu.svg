@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 176" fill="none" role="img" aria-label="GPU Orchestration">
+  <style>
+    /* Transparent background — adapts to GitHub light/dark theme. */
+    svg { color-scheme: light dark; --ink: 255, 255, 255; }
+    @media (prefers-color-scheme: light) { svg { --ink: 30, 32, 44; } }
+
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", sans-serif; }
+    .ps-gpu-orch { fill: rgba(var(--ink), 0.1); stroke: rgba(var(--ink), 0.28); stroke-width: 1; }
+    .ps-gpu-orch-lbl { fill: rgba(var(--ink), 0.82); font-size: 9px; font-weight: 700; letter-spacing: 0.07em; }
+    .ps-gpu-conn { fill: rgba(var(--ink), 0.72); animation: psGpuConnFlicker 2s ease-in-out infinite; }
+    .ps-gpu-wire { stroke: rgba(var(--ink), 0.6); stroke-width: 1.5; stroke-linecap: round; stroke-dasharray: 3 3; animation: psGpuFlow 0.7s linear infinite; }
+    .ps-gpu-node { fill: rgba(var(--ink), 0.07); stroke: rgba(var(--ink), 0.22); stroke-width: 1; }
+    .ps-gpu-node-brand { fill: rgba(247,148,29,0.22); stroke: #f7941d; stroke-width: 1.5; stroke-opacity: 0.75; }
+    .ps-gpu-node-lbl { fill: rgba(var(--ink), 0.72); font-size: 9px; font-weight: 700; letter-spacing: 0.06em; }
+    .ps-gpu-bar { fill: rgba(var(--ink), 0.65); transform-box: fill-box; transform-origin: center bottom; animation: psGpuBarFill 2.2s ease-in-out infinite; }
+    .ps-gpu-bar-brand { fill: rgba(247,148,29,0.75); }
+    @keyframes psGpuConnFlicker { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
+    @keyframes psGpuFlow { to { stroke-dashoffset: -6; } }
+    @keyframes psGpuBarFill { 0%, 100% { transform: scaleY(0.32); opacity: 0.55; } 50% { transform: scaleY(1); opacity: 1; } }
+  </style>
+
+  <!-- Orchestrator bar -->
+  <rect class="ps-gpu-orch" x="18" y="12" width="284" height="24" rx="8" />
+  <text class="ps-gpu-orch-lbl" x="32" y="29">GPU ORCHESTRATOR</text>
+  <circle class="ps-gpu-conn" cx="60" cy="24" r="3" style="animation-delay:0s" />
+  <circle class="ps-gpu-conn" cx="160" cy="24" r="3" style="animation-delay:0.3s" />
+  <circle class="ps-gpu-conn" cx="260" cy="24" r="3" style="animation-delay:0.6s" />
+
+  <!-- Connector wires -->
+  <line class="ps-gpu-wire" x1="60" y1="36" x2="60" y2="50" />
+  <line class="ps-gpu-wire" x1="160" y1="36" x2="160" y2="50" />
+  <line class="ps-gpu-wire" x1="260" y1="36" x2="260" y2="50" />
+
+  <!-- GPU A -->
+  <g>
+    <rect class="ps-gpu-node" x="18" y="50" width="84" height="116" rx="10" />
+    <text class="ps-gpu-node-lbl" x="29" y="70">GPU · A</text>
+    <rect class="ps-gpu-bar" x="30" y="82" width="12" height="74" rx="2" style="animation-delay:0s" />
+    <rect class="ps-gpu-bar" x="46" y="82" width="12" height="74" rx="2" style="animation-delay:0.55s" />
+    <rect class="ps-gpu-bar" x="62" y="82" width="12" height="74" rx="2" style="animation-delay:1.1s" />
+    <rect class="ps-gpu-bar" x="78" y="82" width="12" height="74" rx="2" style="animation-delay:1.65s" />
+  </g>
+
+  <!-- GPU B (brand) -->
+  <g>
+    <rect class="ps-gpu-node ps-gpu-node-brand" x="118" y="50" width="84" height="116" rx="10" />
+    <text class="ps-gpu-node-lbl" x="129" y="70">GPU · B</text>
+    <rect class="ps-gpu-bar ps-gpu-bar-brand" x="130" y="82" width="12" height="74" rx="2" style="animation-delay:0.3s" />
+    <rect class="ps-gpu-bar ps-gpu-bar-brand" x="146" y="82" width="12" height="74" rx="2" style="animation-delay:0.85s" />
+    <rect class="ps-gpu-bar ps-gpu-bar-brand" x="162" y="82" width="12" height="74" rx="2" style="animation-delay:0.15s" />
+    <rect class="ps-gpu-bar ps-gpu-bar-brand" x="178" y="82" width="12" height="74" rx="2" style="animation-delay:0.7s" />
+  </g>
+
+  <!-- GPU C -->
+  <g>
+    <rect class="ps-gpu-node" x="218" y="50" width="84" height="116" rx="10" />
+    <text class="ps-gpu-node-lbl" x="229" y="70">GPU · C</text>
+    <rect class="ps-gpu-bar" x="230" y="82" width="12" height="74" rx="2" style="animation-delay:0.6s" />
+    <rect class="ps-gpu-bar" x="246" y="82" width="12" height="74" rx="2" style="animation-delay:0.05s" />
+    <rect class="ps-gpu-bar" x="262" y="82" width="12" height="74" rx="2" style="animation-delay:0.95s" />
+    <rect class="ps-gpu-bar" x="278" y="82" width="12" height="74" rx="2" style="animation-delay:0.4s" />
+  </g>
+</svg>

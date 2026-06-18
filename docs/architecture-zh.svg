@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 880" fill="none" role="img" aria-label="Phison AI Data Platform 架構">
+  <style>
+    /* Transparent background — adapts to GitHub light/dark theme. */
+    svg { color-scheme: light dark; --ink: 228, 230, 238; }
+    @media (prefers-color-scheme: light) { svg { --ink: 30, 32, 44; } }
+
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", sans-serif; }
+    .title   { fill: #f7941d; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
+    .band-lbl{ fill: rgba(var(--ink), 0.88); font-size: 12px; font-weight: 700; }
+    .cell-lbl{ fill: rgba(var(--ink), 0.78); font-size: 11px; font-weight: 500; }
+    .sub-lbl { fill: rgba(var(--ink), 0.50); font-size: 9px; font-weight: 500; }
+    .accent  { fill: #5b9bff; font-size: 11px; font-weight: 600; }
+    .margin  { fill: rgba(var(--ink), 0.42); font-size: 11px; font-weight: 600; font-style: italic; }
+    .Llabel  { fill: rgba(var(--ink), 0.55); font-size: 12px; font-weight: 700; }
+
+    .band      { fill: rgba(var(--ink), 0.03); stroke: rgba(var(--ink), 0.12); stroke-width: 1; }
+    .band-dash { fill: rgba(var(--ink), 0.03); stroke: rgba(var(--ink), 0.18); stroke-width: 1; stroke-dasharray: 5 4; }
+    .container { fill: rgba(var(--ink), 0.02); stroke: rgba(var(--ink), 0.20); stroke-width: 1.5; }
+    .cell      { fill: rgba(var(--ink), 0.06); stroke: rgba(var(--ink), 0.15); stroke-width: 1; }
+    .brand-cell{ fill: rgba(247,148,29,0.15); stroke: #f7941d; stroke-width: 1.2; animation: brandPulse 2.6s ease-in-out infinite; }
+
+    .gw-wire  { stroke: rgba(var(--ink), 0.40); stroke-width: 1.5; stroke-linecap: round; stroke-dasharray: 4 4; animation: gwFlow 0.8s linear infinite; }
+    .gw-arrow { fill: #f7941d; animation: gwPulse 2s ease-in-out infinite; }
+    .gw-lbl   { fill: rgba(var(--ink), 0.72); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+
+    @keyframes brandPulse { 0%, 100% { stroke-opacity: 0.55; } 50% { stroke-opacity: 1; } }
+    @keyframes gwFlow { to { stroke-dashoffset: -16; } }
+    @keyframes gwPulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+  </style>
+
+  <!-- ══ Band 1 · Partner Ecosystem ══ -->
+  <text class="title" x="412" y="28" text-anchor="middle">夥伴生態系</text>
+  <rect class="band-dash" x="56" y="40" width="712" height="58" rx="12" />
+  <text class="band-lbl" x="78" y="75">第三方生態系</text>
+  <text class="accent" x="746" y="75" text-anchor="end">SecureMeet · OrientAI · digiRunner · VIKI · Phison Agentic Hub</text>
+
+  <!-- ══ Band 2 · Native Apps ══ -->
+  <text class="title" x="412" y="130" text-anchor="middle">原生應用</text>
+  <rect class="band-dash" x="56" y="142" width="712" height="104" rx="12" />
+  <text class="band-lbl" x="78" y="172">代理式生成式 BI</text>
+  <text class="accent" x="746" y="172" text-anchor="end">WrenAI</text>
+  <rect class="cell" x="74"  y="188" width="158" height="44" rx="8" />
+  <rect class="cell" x="242" y="188" width="158" height="44" rx="8" />
+  <rect class="cell" x="410" y="188" width="158" height="44" rx="8" />
+  <rect class="cell" x="578" y="188" width="158" height="44" rx="8" />
+  <text class="cell-lbl" x="153" y="214" text-anchor="middle">對話式分析</text>
+  <text class="cell-lbl" x="321" y="214" text-anchor="middle">視覺化儀表板</text>
+  <text class="cell-lbl" x="489" y="214" text-anchor="middle">Slack / Teams 嵌入</text>
+  <text class="cell-lbl" x="657" y="214" text-anchor="middle">嵌入式 AI 應用</text>
+  <text class="margin" x="790" y="200">SaaS</text>
+
+  <!-- ══ Gateway ══ -->
+  <line class="gw-wire" x1="220" y1="250" x2="220" y2="308" />
+  <line class="gw-wire" x1="412" y1="250" x2="412" y2="308" />
+  <line class="gw-wire" x1="604" y1="250" x2="604" y2="308" />
+  <path class="gw-arrow" d="M412 248 l-5 7 h10 z" />
+  <path class="gw-arrow" d="M412 310 l-5 -7 h10 z" />
+  <text class="gw-lbl" x="448" y="283">API / AI 閘道</text>
+
+  <!-- ══ Platform ══ -->
+  <text class="title" x="412" y="305" text-anchor="middle">Phison AI Data Platform</text>
+  <rect class="container" x="56" y="316" width="712" height="548" rx="14" />
+  <text class="Llabel" x="34" y="382" text-anchor="middle">L4</text>
+  <text class="Llabel" x="34" y="486" text-anchor="middle">L3</text>
+  <text class="Llabel" x="34" y="616" text-anchor="middle">L2</text>
+  <text class="Llabel" x="34" y="786" text-anchor="middle">L1</text>
+
+  <!-- L4 · Reusable AI Module Layer -->
+  <rect class="band" x="64" y="332" width="696" height="94" rx="10" />
+  <text class="band-lbl" x="84" y="355">可複用 AI 模組層</text>
+  <rect class="cell" x="84"  y="366" width="124" height="48" rx="8" />
+  <rect class="cell" x="218" y="366" width="124" height="48" rx="8" />
+  <rect class="cell" x="352" y="366" width="124" height="48" rx="8" />
+  <rect class="cell" x="486" y="366" width="124" height="48" rx="8" />
+  <rect class="cell" x="620" y="366" width="124" height="48" rx="8" />
+  <text class="cell-lbl" x="146" y="394" text-anchor="middle">視覺模組</text>
+  <text class="cell-lbl" x="280" y="394" text-anchor="middle">語音模組</text>
+  <text class="cell-lbl" x="414" y="394" text-anchor="middle">推理模組</text>
+  <text class="cell-lbl" x="548" y="394" text-anchor="middle">資料橋接</text>
+  <text class="cell-lbl" x="682" y="394" text-anchor="middle">MLOps / LLMOps</text>
+
+  <!-- L3 · Reusable Open-Source Component Layer -->
+  <rect class="band" x="64" y="436" width="696" height="94" rx="10" />
+  <text class="band-lbl" x="84" y="459">可複用開源元件層</text>
+  <rect class="brand-cell" x="84"  y="470" width="88" height="48" rx="8" />
+  <rect class="cell" x="180" y="470" width="88" height="48" rx="8" />
+  <rect class="cell" x="276" y="470" width="88" height="48" rx="8" />
+  <rect class="cell" x="372" y="470" width="88" height="48" rx="8" />
+  <rect class="cell" x="468" y="470" width="88" height="48" rx="8" />
+  <rect class="cell" x="564" y="470" width="88" height="48" rx="8" />
+  <rect class="cell" x="660" y="470" width="88" height="48" rx="8" />
+  <text class="cell-lbl" x="128" y="498" text-anchor="middle" fill="#f7941d" font-weight="700">aiDAPTIV</text>
+  <text class="cell-lbl" x="224" y="498" text-anchor="middle">AI 框架</text>
+  <text class="cell-lbl" x="320" y="498" text-anchor="middle">訊息佇列</text>
+  <text class="cell-lbl" x="416" y="498" text-anchor="middle">資料庫</text>
+  <text class="cell-lbl" x="512" y="498" text-anchor="middle">網路</text>
+  <text class="cell-lbl" x="608" y="498" text-anchor="middle">監控</text>
+  <text class="cell-lbl" x="704" y="498" text-anchor="middle">AI 模型</text>
+  <text class="margin" x="790" y="486">PaaS</text>
+
+  <!-- L2 · Hyper-Converged Infrastructure Software -->
+  <rect class="band" x="64" y="540" width="696" height="152" rx="10" />
+  <text class="band-lbl" x="84" y="563">超融合基礎架構軟體層</text>
+  <text class="accent" x="740" y="563" text-anchor="end">Phison HCI</text>
+  <rect class="cell" x="84"  y="574" width="124" height="50" rx="8" />
+  <rect class="cell" x="218" y="574" width="124" height="50" rx="8" />
+  <rect class="cell" x="352" y="574" width="124" height="50" rx="8" />
+  <rect class="cell" x="486" y="574" width="124" height="50" rx="8" />
+  <rect class="cell" x="620" y="574" width="124" height="50" rx="8" />
+  <text class="cell-lbl" x="146" y="603" text-anchor="middle">軟體部署 / 容器</text>
+  <text class="cell-lbl" x="280" y="603" text-anchor="middle">CPU 資源管理</text>
+  <text class="cell-lbl" x="414" y="603" text-anchor="middle">GPU 資源管理</text>
+  <text class="cell-lbl" x="548" y="603" text-anchor="middle">VM 資源管理</text>
+  <text class="cell-lbl" x="682" y="603" text-anchor="middle">GPU 虛擬化</text>
+  <rect class="cell" x="84"  y="632" width="124" height="50" rx="8" />
+  <rect class="cell" x="218" y="632" width="124" height="50" rx="8" />
+  <rect class="cell" x="352" y="632" width="124" height="50" rx="8" />
+  <rect class="cell" x="486" y="632" width="124" height="50" rx="8" />
+  <rect class="cell" x="620" y="632" width="124" height="50" rx="8" />
+  <text class="cell-lbl" x="146" y="661" text-anchor="middle">軟體應用市集</text>
+  <text class="cell-lbl" x="280" y="661" text-anchor="middle">儲存管理</text>
+  <text class="cell-lbl" x="414" y="661" text-anchor="middle">成本管理</text>
+  <text class="cell-lbl" x="548" y="661" text-anchor="middle">監控與告警</text>
+  <text class="cell-lbl" x="682" y="661" text-anchor="middle">安全權限管理</text>
+
+  <!-- L1 · Infrastructure -->
+  <rect class="band" x="64" y="702" width="696" height="150" rx="10" />
+  <text class="band-lbl" x="84" y="725">基礎設施層</text>
+  <rect class="cell"       x="84"  y="736" width="216" height="104" rx="8" />
+  <rect class="cell"       x="312" y="736" width="216" height="104" rx="8" />
+  <rect class="brand-cell" x="540" y="736" width="216" height="104" rx="8" />
+  <text class="cell-lbl" x="192" y="784" text-anchor="middle" font-size="13" font-weight="700">CPU Server</text>
+  <text class="sub-lbl"  x="192" y="804" text-anchor="middle">Intel · AMD · ARM</text>
+  <text class="cell-lbl" x="420" y="784" text-anchor="middle" font-size="13" font-weight="700">GPU Server</text>
+  <text class="sub-lbl"  x="420" y="804" text-anchor="middle">NVIDIA · AMD · Intel</text>
+  <text class="cell-lbl" x="648" y="784" text-anchor="middle" font-size="13" font-weight="700">Cache / Storage Server</text>
+  <text class="sub-lbl"  x="648" y="804" text-anchor="middle" fill="#f7941d">aiDAPTIV Cache Memory · Pascari SSD</text>
+  <text class="margin" x="790" y="730">IaaS</text>
+</svg>

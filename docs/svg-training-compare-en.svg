@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" fill="none" role="img" aria-label="Traditional vs Phison aiDAPTIV Training Architecture">
+  <style>
+    /* Theme-aware colors */
+    svg { color-scheme: light dark; --ink: 228, 230, 238; }
+    @media (prefers-color-scheme: light) { svg { --ink: 30, 32, 44; } }
+
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+    /* Typography */
+    .tc-title       { fill: #f7941d; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
+    .tc-badge       { fill: rgba(var(--ink), 0.55); font-size: 8.5px; font-weight: 700; letter-spacing: 0.08em; }
+    .tc-badge-brand { fill: #f7941d; font-size: 8.5px; font-weight: 800; letter-spacing: 0.08em; }
+    .tc-label       { fill: rgba(var(--ink), 0.85); font-size: 11px; font-weight: 700; }
+    .tc-label-brand { fill: #f7941d; font-size: 11px; font-weight: 800; }
+    .tc-desc        { fill: rgba(var(--ink), 0.45); font-size: 9px; font-weight: 500; }
+
+    /* Shapes */
+    .tc-panel       { fill: rgba(var(--ink), 0.02); stroke: rgba(var(--ink), 0.12); stroke-width: 1; }
+    .tc-badge-bg    { fill: rgba(var(--ink), 0.05); stroke: rgba(var(--ink), 0.15); stroke-width: 0.8; }
+    .tc-badge-bg-brand { fill: rgba(247, 148, 29, 0.12); stroke: rgba(247, 148, 29, 0.4); stroke-width: 0.8; }
+    .tc-rail        { fill: rgba(var(--ink), 0.015); stroke: rgba(var(--ink), 0.06); stroke-width: 1; }
+    .tc-block       { fill: rgba(var(--ink), 0.04); stroke: rgba(var(--ink), 0.15); stroke-width: 1; }
+    .tc-block-brand { fill: rgba(247, 148, 29, 0.10); stroke: #f7941d; stroke-width: 1.2; }
+    .tc-dash-traditional { stroke: rgba(var(--ink), 0.35); stroke-width: 1.2; stroke-dasharray: 4 3; fill: none; }
+    .tc-dash-brand  { stroke: #f7941d; stroke-width: 1.5; stroke-dasharray: 5 4; fill: rgba(247, 148, 29, 0.03); animation: tcMarch 1.5s linear infinite; }
+    .tc-conn-line   { stroke: rgba(var(--ink), 0.22); stroke-width: 1.2; fill: none; }
+    .tc-conn-dash   { stroke: rgba(var(--ink), 0.25); stroke-width: 1.2; stroke-dasharray: 3 3; fill: none; }
+    .tc-conn-brand  { stroke: #f7941d; stroke-width: 1.5; stroke-dasharray: 3 3; fill: none; animation: tcFlow 0.8s linear infinite; }
+
+    /* Animations */
+    @keyframes tcMarch {
+      to { stroke-dashoffset: -18; }
+    }
+    @keyframes tcFlow {
+      to { stroke-dashoffset: -6; }
+    }
+    .tc-pulse {
+      animation: tcPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes tcPulse {
+      0%, 100% { stroke-opacity: 0.6; fill-opacity: 0.08; }
+      50% { stroke-opacity: 1; fill-opacity: 0.15; }
+    }
+  </style>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- Left Panel: Traditional Architecture                -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <g>
+    <rect class="tc-panel" x="30" y="30" width="380" height="340" rx="12" />
+    
+    <!-- Badge & Header -->
+    <rect class="tc-badge-bg" x="50" y="50" width="94" height="18" rx="4" />
+    <text class="tc-badge" x="97" y="62" text-anchor="middle">TRADITIONAL</text>
+
+    <!-- GPU Rail Container -->
+    <rect class="tc-rail" x="50" y="85" width="150" height="260" rx="8" />
+    
+    <!-- Column 1 Blocks -->
+    <!-- GPU Box -->
+    <rect class="tc-block" x="65" y="100" width="120" height="50" rx="6" />
+    <text class="tc-label" x="125" y="130" text-anchor="middle">GPU</text>
+
+    <!-- HBM Box -->
+    <rect class="tc-dash-traditional" x="65" y="175" width="120" height="150" rx="6" />
+    <text class="tc-label" x="125" y="254" text-anchor="middle">HBM or GDDR</text>
+
+    <!-- Column 2 Blocks -->
+    <!-- CPU Box -->
+    <rect class="tc-block" x="240" y="100" width="120" height="50" rx="6" />
+    <text class="tc-label" x="300" y="130" text-anchor="middle">CPU</text>
+
+    <!-- DRAM Box -->
+    <rect class="tc-block" x="240" y="175" width="120" height="70" rx="6" />
+    <text class="tc-label" x="300" y="215" text-anchor="middle">DRAM</text>
+
+    <!-- SSD Box -->
+    <rect class="tc-block" x="240" y="265" width="120" height="60" rx="6" />
+    <text class="tc-label" x="300" y="300" text-anchor="middle">SSD</text>
+
+    <!-- Connection Wires -->
+    <!-- Internal Ultra-fast VRAM connection -->
+    <line class="tc-conn-line" x1="125" y1="150" x2="125" y2="175" />
+    <circle cx="125" cy="150" r="2" fill="rgba(var(--ink), 0.4)" />
+    <circle cx="125" cy="175" r="2" fill="rgba(var(--ink), 0.4)" />
+
+    <!-- CPU-DRAM Bus -->
+    <line class="tc-conn-line" x1="300" y1="150" x2="300" y2="175" />
+    <!-- DRAM-SSD Storage link -->
+    <line class="tc-conn-line" x1="300" y1="245" x2="300" y2="265" />
+
+    <!-- PCIe Bottleneck Wire -->
+    <path class="tc-conn-dash" d="M 185 125 L 240 125" />
+  </g>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- Right Panel: aiDAPTIV Architecture                  -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <g>
+    <rect class="tc-panel" x="450" y="30" width="380" height="340" rx="12" />
+
+    <!-- Badge & Header -->
+    <rect class="tc-badge-bg-brand" x="470" y="50" width="64" height="18" rx="4" />
+    <text class="tc-badge-brand" x="502" y="62" text-anchor="middle">aiDAPTIV</text>
+
+    <!-- GPU Rail Container -->
+    <rect class="tc-rail" x="470" y="85" width="102" height="260" rx="8" />
+
+    <!-- Column 1 Blocks -->
+    <!-- GPU Box -->
+    <rect class="tc-block" x="481" y="100" width="80" height="50" rx="6" />
+    <text class="tc-label" x="521" y="130" text-anchor="middle">GPU</text>
+
+    <!-- HBM Box -->
+    <rect class="tc-block" x="481" y="175" width="80" height="95" rx="6" />
+    <text class="tc-label" x="521" y="228" text-anchor="middle">HBM or GDDR</text>
+
+    <!-- Column 2 Blocks (Middleware Bridge) -->
+    <!-- aiDAPTIV Middleware Box -->
+    <rect class="tc-block-brand tc-pulse" x="589" y="175" width="92" height="95" rx="6" />
+    <text class="tc-label-brand" x="635" y="220" text-anchor="middle">aiDAPTIV</text>
+    <text class="tc-label-brand" x="635" y="235" text-anchor="middle">Middleware</text>
+
+    <!-- Column 3 Blocks (Host System & Cache) -->
+    <!-- CPU Box -->
+    <rect class="tc-block" x="708" y="100" width="102" height="50" rx="6" />
+    <text class="tc-label" x="759" y="130" text-anchor="middle">CPU</text>
+
+    <!-- DRAM Box -->
+    <rect class="tc-block" x="708" y="175" width="102" height="42" rx="6" />
+    <text class="tc-label" x="759" y="201" text-anchor="middle">DRAM</text>
+
+    <!-- Cache Box -->
+    <rect class="tc-block-brand" x="708" y="228" width="102" height="42" rx="6" />
+    <text class="tc-label-brand" x="759" y="254" text-anchor="middle">aiDAPTIV Cache</text>
+
+    <!-- SSD Box -->
+    <rect class="tc-block" x="708" y="285" width="102" height="42" rx="6" />
+    <text class="tc-label" x="759" y="311" text-anchor="middle">SSD</text>
+
+    <!-- Connection Wires -->
+    <!-- GPU-HBM Internal link -->
+    <line class="tc-conn-line" x1="521" y1="150" x2="521" y2="175" />
+
+    <!-- CPU to Host memory link -->
+    <line class="tc-conn-line" x1="759" y1="150" x2="759" y2="175" />
+    <!-- Cache to SSD Storage link -->
+    <line class="tc-conn-line" x1="759" y1="270" x2="759" y2="285" />
+
+    <!-- Middleware Orchestrated Buses -->
+    <!-- HBM <-> Middleware bus -->
+    <path class="tc-conn-brand" d="M 561 222 L 589 222" />
+    <!-- Middleware <-> Host DRAM bus -->
+    <path class="tc-conn-brand" d="M 681 196 L 698 196 L 698 194 L 708 194" />
+    <!-- Middleware <-> Cache bus -->
+    <path class="tc-conn-brand" d="M 681 248 L 698 248 L 698 250 L 708 250" />
+
+    <!-- Unified Memory Zone Dashed Boundary -->
+    <rect class="tc-dash-brand" x="476" y="167" width="348" height="111" rx="8" />
+  </g>
+</svg>
