@@ -56,7 +56,7 @@
 Hardware, platform, AI modules, and application services unified in a single platform — no need to stitch together multiple vendors and complex technology stacks.
 
 <p align="center">
-  <img src="docs/svg-one-stop.svg" alt="One-Stop AI Solution" width="720" />
+  <img src="docs/svg-one-stop.svg" alt="One-Stop AI Solution" width="480" />
 </p>
 
 #### Unified GPU Management
@@ -64,7 +64,7 @@ Hardware, platform, AI modules, and application services unified in a single pla
 Centrally manage GPUs/XPUs across brands and generations to raise overall resource utilization and scalability.
 
 <p align="center">
-  <img src="docs/svg-gpu.svg" alt="Unified GPU Management" width="720" />
+  <img src="docs/svg-gpu.svg" alt="Unified GPU Management" width="480" />
 </p>
 
 #### Lower Deployment Cost
@@ -72,7 +72,7 @@ Centrally manage GPUs/XPUs across brands and generations to raise overall resour
 Delivered as a pre-integrated private AI platform, helping enterprises move from PoC to production faster.
 
 <p align="center">
-  <img src="docs/svg-deployment.svg" alt="Lower Deployment Cost" width="720" />
+  <img src="docs/svg-deployment.svg" alt="Lower Deployment Cost" width="480" />
 </p>
 
 ---
@@ -95,7 +95,7 @@ The same platform deploys consistently from edge sites to the central data cente
 Production-ready vision, speech, inference, and model-lifecycle modules, spanning training and optimization through deployment and operations.
 
 <p align="center">
-  <img src="docs/svg-arch-l4.svg" alt="L4 — Reusable AI Module Layer" width="720" />
+  <img src="docs/svg-arch-l4.svg" alt="L4 — Reusable AI Module Layer" width="480" />
 </p>
 
 #### L3 — Reusable Open-Source Component Layer
@@ -103,7 +103,7 @@ Production-ready vision, speech, inference, and model-lifecycle modules, spannin
 Curated, AI-ready open-source components (frameworks, queues, databases, and tools), hardened as a composable workflow foundation.
 
 <p align="center">
-  <img src="docs/svg-arch-l3.svg" alt="L3 — Reusable Open-Source Component Layer" width="720" />
+  <img src="docs/svg-arch-l3.svg" alt="L3 — Reusable Open-Source Component Layer" width="480" />
 </p>
 
 #### L2 — Hyper-Converged Infrastructure Software Layer
@@ -113,7 +113,7 @@ A hyper-converged control plane managing heterogeneous GPU/XPU, storage, and VMs
 <a href="https://phison.ai/hci/"><img src="https://img.shields.io/badge/Phison_HCI-F7941D?style=for-the-badge&logo=cloud&logoColor=white" alt="Phison HCI" /></a>
 
 <p align="center">
-  <img src="docs/svg-arch-l2.svg" alt="L2 — Hyper-Converged Infrastructure Software Layer" width="720" />
+  <img src="docs/svg-arch-l2.svg" alt="L2 — Hyper-Converged Infrastructure Software Layer" width="480" />
 </p>
 
 #### L1 — Infrastructure Layer
@@ -125,7 +125,7 @@ Integrates GPU, CPU, cache, and storage over high-speed interconnects to form th
 <a href="https://phison.ai/storage-server/"><img src="https://img.shields.io/badge/Storage_Server-F7941D?style=for-the-badge&logo=hard-drive&logoColor=white" alt="Storage Server" /></a>
 
 <p align="center">
-  <img src="docs/svg-arch-l1.svg" alt="L1 — Infrastructure Layer" width="720" />
+  <img src="docs/svg-arch-l1.svg" alt="L1 — Infrastructure Layer" width="480" />
 </p>
 
 ---
@@ -163,7 +163,7 @@ Once produced, KV cache is shared across the entire cluster. Long prompts, multi
 Same GPU cluster, more than 2× concurrency. Prefill no longer hogs the GPU.
 
 <p align="center">
-  <img src="docs/svg-concurrency.svg" alt="GPU concurrency" width="480" />
+  <img src="docs/svg-concurrency.svg" alt="GPU concurrency" width="300" />
 </p>
 
 #### **50% DOWN** — GPU Compute Required
@@ -171,7 +171,7 @@ Same GPU cluster, more than 2× concurrency. Prefill no longer hogs the GPU.
 With KV cache reuse, GPU compute drops by more than half.
 
 <p align="center">
-  <img src="docs/svg-decoupled-cost.svg" alt="Decoupled cost" width="480" />
+  <img src="docs/svg-decoupled-cost.svg" alt="Decoupled cost" width="300" />
 </p>
 
 #### **500% UP** — Faster TTFT
@@ -179,7 +179,7 @@ With KV cache reuse, GPU compute drops by more than half.
 Hit-and-return replaces recompute — 5× faster time-to-first-token.
 
 <p align="center">
-  <img src="docs/svg-hit-rate.svg" alt="Shared cache hit" width="480" />
+  <img src="docs/svg-hit-rate.svg" alt="Shared cache hit" width="300" />
 </p>
 
 ---
@@ -219,7 +219,7 @@ Phison HCI unifies heterogeneous GPU/XPU, storage, and VM resources under a sing
 Reduce idle resources and directly lower the per-token inference cost.
 
 <p align="center">
-  <img src="docs/svg-cost.svg" alt="Lower inference cost" width="480" />
+  <img src="docs/svg-cost.svg" alt="Lower inference cost" width="300" />
 </p>
 
 #### Linear Scale-Out
@@ -227,7 +227,7 @@ Reduce idle resources and directly lower the per-token inference cost.
 Add new nodes to linearly increase throughput without redeploying the model.
 
 <p align="center">
-  <img src="docs/svg-scale-out.svg" alt="Linear scale-out" width="480" />
+  <img src="docs/svg-scale-out.svg" alt="Linear scale-out" width="300" />
 </p>
 
 #### Higher Concurrency
@@ -235,7 +235,7 @@ Add new nodes to linearly increase throughput without redeploying the model.
 Combined with vGPU partitioning, a single host serves more concurrent requests simultaneously.
 
 <p align="center">
-  <img src="docs/svg-vgpu-concurrency.svg" alt="Higher concurrency" width="480" />
+  <img src="docs/svg-vgpu-concurrency.svg" alt="Higher concurrency" width="300" />
 </p>
 
 ---
