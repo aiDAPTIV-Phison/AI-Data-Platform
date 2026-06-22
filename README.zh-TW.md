@@ -29,15 +29,15 @@
 <table>
 <tr>
 <td align="center" width="33%">
-  <h2><strong>Day 1</strong></h2>
+  <h3><strong>Day 1</strong></h3>
   <h3>開機即用</h3>
 </td>
 <td align="center" width="33%">
-  <h2><strong>1/5</strong></h2>
+  <h3><strong>1/5</strong></h3>
   <h3>硬體預算</h3>
 </td>
 <td align="center" width="33%">
-  <h2><strong>Anywhere</strong></h2>
+  <h3><strong>Anywhere</strong></h3>
   <h3>詢問 AI</h3>
 </td>
 </tr>
