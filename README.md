@@ -12,13 +12,16 @@
 
 <strong>English</strong> · <a href="README.zh-TW.md">繁體中文</a>
 
-[Website](https://phison.ai) · [Discussions](https://github.com/AIDataPlatform/Community/discussions) · [Phison](https://www.phison.com)
+[Website](https://phison.ai) · [Ecosystem](https://phison.ai/ecosystem/) · [AISO](https://phison.ai/aiso/) · [Contact](https://phison.ai/contact/) · [Discussions](https://github.com/AIDataPlatform/Community/discussions) · [Phison](https://www.phison.com)
 
 [GPU Server](https://phison.ai/gpu-server/) · [Cache Server](https://phison.ai/cache-server/) · [Storage Server](https://phison.ai/storage-server/) · [HCI](https://phison.ai/hci/)
 
-[![Website](https://img.shields.io/badge/Website-Live-f7941d?style=flat-square)](https://phison.ai)
+
 ![Made by Phison](https://img.shields.io/badge/Made_by-Phison-f7941d?style=flat-square)
 ![Enterprise AI](https://img.shields.io/badge/Enterprise-AI_Infrastructure-1e202c?style=flat-square)
+![200% CCU](https://img.shields.io/badge/200%25+-CCU-f7941d?style=flat-square)
+![500% TTFT](https://img.shields.io/badge/500%25+-TTFT-f7941d?style=flat-square)
+![50% GPU](https://img.shields.io/badge/GPU_-50%25-17a745?style=flat-square)
 
 </div>
 
@@ -58,29 +61,29 @@
 
 <table>
 <tr>
-<td width="67%">
-  <h3>One-Stop AI Solution</h3>
+<td width="55%">
+  <h4>One-Stop AI Solution</h4>
   <p>Hardware, platform, AI modules, and application services unified in a single platform — no need to stitch together multiple vendors and complex technology stacks.</p>
 </td>
-<td align="center" width="33%">
+<td align="center" width="45%">
   <img src="docs/svg-one-stop.svg" alt="One-Stop AI Solution" width="480" />
 </td>
 </tr>
 <tr>
-<td width="67%">
-  <h3>Unified GPU Management</h3>
+<td width="55%">
+  <h4>Unified GPU Management</h4>
   <p>Centrally manage GPUs/XPUs across brands and generations to raise overall resource utilization and scalability.</p>
 </td>
-<td align="center" width="33%">
+<td align="center" width="45%">
   <img src="docs/svg-gpu.svg" alt="Unified GPU Management" width="480" />
 </td>
 </tr>
 <tr>
-<td width="67%">
-  <h3>Lower Deployment Cost</h3>
+<td width="55%">
+  <h4>Lower Deployment Cost</h4>
   <p>Delivered as a pre-integrated private AI platform, helping enterprises move from PoC to production faster.</p>
 </td>
-<td align="center" width="33%">
+<td align="center" width="45%">
   <img src="docs/svg-deployment.svg" alt="Lower Deployment Cost" width="480" />
 </td>
 </tr>
@@ -103,38 +106,46 @@ The same platform deploys consistently from edge sites to the central data cente
 
 <table>
 <tr>
-<td width="67%">
-  <h3>L4 — Reusable AI Module Layer</h3>
+<td width="55%">
+  <h4>L4 — Reusable AI Module Layer</h4>
   <p>Production-ready vision, speech, inference, and model-lifecycle modules, spanning training and optimization through deployment and operations.</p>
 </td>
-<td align="center" width="33%">
+<td align="center" width="45%">
   <img src="docs/svg-arch-l4.svg" alt="L4 — Reusable AI Module Layer" width="480" />
 </td>
 </tr>
 <tr>
-<td width="67%">
-  <h3>L3 — Reusable Open-Source Component Layer</h3>
+<td width="55%">
+  <h4>L3 — Reusable Open-Source Component Layer</h4>
   <p>Curated, AI-ready open-source components (frameworks, queues, databases, and tools), hardened as a composable workflow foundation.</p>
 </td>
-<td align="center" width="33%">
+<td align="center" width="45%">
   <img src="docs/svg-arch-l3.svg" alt="L3 — Reusable Open-Source Component Layer" width="480" />
 </td>
 </tr>
 <tr>
-<td width="67%">
-  <h3>L2 — Hyper-Converged Infrastructure Software Layer</h3>
+<td width="55%">
+  <h4>L2 — Hyper-Converged Infrastructure Software Layer</h4>
   <p>A hyper-converged control plane managing heterogeneous GPU/XPU, storage, and VMs — pooling mixed-brand, mixed-generation hardware centrally.</p>
+  <p>
+    <a href="https://phison.ai/hci/"><img src="https://img.shields.io/badge/Phison_HCI-F7941D?style=for-the-badge&logo=cloud&logoColor=white" alt="Phison HCI" /></a>
+  </p>
 </td>
-<td align="center" width="33%">
+<td align="center" width="45%">
   <img src="docs/svg-arch-l2.svg" alt="L2 — Hyper-Converged Infrastructure Software Layer" width="480" />
 </td>
 </tr>
 <tr>
-<td width="67%">
-  <h3>L1 — Infrastructure Layer</h3>
+<td width="55%">
+  <h4>L1 — Infrastructure Layer</h4>
   <p>Integrates GPU, CPU, cache, and storage over high-speed interconnects to form the compute and data backbone.</p>
+  <p>
+    <a href="https://phison.ai/gpu-server/"><img src="https://img.shields.io/badge/GPU_Server-F7941D?style=for-the-badge&logo=server&logoColor=white" alt="GPU Server" /></a>
+    <a href="https://phison.ai/cache-server/"><img src="https://img.shields.io/badge/Cache_Server-F7941D?style=for-the-badge&logo=database&logoColor=white" alt="Cache Server" /></a>
+    <a href="https://phison.ai/storage-server/"><img src="https://img.shields.io/badge/Storage_Server-F7941D?style=for-the-badge&logo=hard-drive&logoColor=white" alt="Storage Server" /></a>
+  </p>
 </td>
-<td align="center" width="33%">
+<td align="center" width="45%">
   <img src="docs/svg-arch-l1.svg" alt="L1 — Infrastructure Layer" width="480" />
 </td>
 </tr>
@@ -161,15 +172,15 @@ aiDAPTIV Cache Memory extends effective AI memory across GPU memory, system memo
 <table>
 <tr>
 <td width="33%" valign="top">
-  <h3>Disaggregated AI Infrastructure</h3>
+  <h4>Disaggregated AI Infrastructure</h4>
   <p>Disaggregated architecture raises the scalability and resource utilization of AI systems.</p>
 </td>
 <td width="33%" valign="top">
-  <h3>One-Stop AI Deployment Platform</h3>
+  <h4>One-Stop AI Deployment Platform</h4>
   <p>Provides a complete one-stop AI solution spanning hardware, platform, aiDAPTIV, AI modules, and SaaS applications to significantly shorten the AI adoption lifecycle.</p>
 </td>
 <td width="33%" valign="top">
-  <h3>AI Software Ecosystem Integration</h3>
+  <h4>AI Software Ecosystem Integration</h4>
   <p>Integrates ISVs, SIs, open-source components, and AI ecosystem partners to accelerate enterprise AI commercialization and deployment.</p>
 </td>
 </tr>
@@ -177,42 +188,34 @@ aiDAPTIV Cache Memory extends effective AI memory across GPU memory, system memo
 
 ---
 
-## Quantifiable Technical and Business Outcomes
+## Cache Server Benefits
 
-> Real performance gains from production deployments.
+> **Storage in Place of Compute — Save Massive GPU Compute**
+
+Once produced, KV cache is shared across the entire cluster. Long prompts, multi-turn dialogue, agent workflows, and RAG prefixes don't have to run from scratch every time — Time-to-First-Token drops immediately.
 
 <table>
-<tr><td colspan="2"><strong>Performance Metrics</strong></td></tr>
 <tr>
-<td width="50%">
+<td align="center" width="33%">
   <h2><strong>200% UP</strong></h2>
-  <h3>Concurrent User Capacity</h3>
-  <p>More than 2× concurrent capacity on the same GPU cluster. Fine-grained scheduling maximizes throughput without adding GPUs.</p>
+  <h3>Concurrent Users</h3>
+  <p>Same GPU cluster, more than 2× concurrency. Prefill no longer hogs the GPU.</p>
+  <img src="docs/svg-concurrency.svg" alt="GPU concurrency" width="220" />
 </td>
-<td width="50%">
+<td align="center" width="33%">
+  <h2><strong>50% DOWN</strong></h2>
+  <h3>GPU Compute Required</h3>
+  <p>With KV cache reuse, GPU compute drops by more than half.</p>
+  <img src="docs/svg-decoupled-cost.svg" alt="Decoupled cost" width="220" />
+</td>
+<td align="center" width="33%">
   <h2><strong>500% UP</strong></h2>
-  <h3>Faster Time-to-First-Token</h3>
-  <p>Cache hits replace recomputation — 5× faster and more. A cluster-shared KV cache cuts time-to-first-token immediately.</p>
-</td>
-</tr>
-<tr><td colspan="2"><strong>Business Value</strong></td></tr>
-<tr>
-<td width="50%">
-  <h3>Higher ROI</h3>
-  <p>aiDAPTIV reduces reliance on high-end GPUs and VRAM waste, cutting cost while sustaining throughput. As demand grows, the platform scales out with no architectural redesign — keeping your initial investment productive.</p>
-</td>
-<td width="50%">
-  <h3>Rapid Deployment</h3>
-  <p>Compress traditional AI platform rollout from months to days; pre-integrated modules shorten the path from PoC to production.</p>
+  <h3>Faster TTFT</h3>
+  <p>Hit-and-return replaces recompute — 5× faster time-to-first-token.</p>
+  <img src="docs/svg-hit-rate.svg" alt="Shared cache hit" width="220" />
 </td>
 </tr>
 </table>
-
----
-
-## Storage in Place of Compute — Save Massive GPU Compute
-
-Dedicate the GPU's precious compute to generating replies, and offload the input ingestion workload to aiDAPTIV Cache Memory. Especially under the default 32K long context window (such as multi-turn conversations and long document analysis) while maintaining a smooth experience of Time-to-First-Token (TTFT) ≤ 10.0s and throughput (TP) ≥ 20 t/s, aiDAPTIV saves 66.1% of GPU compute and increases concurrent user capacity by 295%, making your AI Agent run fuller, steadier, and more cost-effectively.
 
 <p align="center">
   <img src="docs/svg-inference-capacity-en.svg" alt="Inference Capacity Explorer" width="800" />
@@ -220,23 +223,94 @@ Dedicate the GPU's precious compute to generating replies, and offload the input
 
 ---
 
-## Who It's For
+## GPU Server Benefits
+
+> **500% More Concurrent Users — Same GPU Hardware**
+
+Compare concurrent user capacity and inference metrics with and without aiDAPTIV on the same GPU server infrastructure. aiDAPTIV expands effective AI memory in software — no extra GPUs required. Same hardware, up to **500% more concurrent users**.
 
 <table>
 <tr>
-<td width="50%">
-  <h3>Large Enterprises — Mission-Critical Scale</h3>
-  <p>Financial services · High-tech manufacturing · Healthcare · Government · Telecom · Large data centers</p>
+<td align="center" width="33%">
+  <h2><strong>500% UP</strong></h2>
+  <h3>Concurrent Users</h3>
+  <p>Up to 5× more concurrent users on the same GPU infrastructure — validated on RTX PRO 6000 and H200 nodes.</p>
 </td>
-<td width="50%">
-  <h3>SMBs — Built for Speed</h3>
-  <p>AI startups · System integrators / ISVs · SMB AI adoption · AI agent / GenAI app development</p>
+<td align="center" width="33%">
+  <h2><strong>5×</strong></h2>
+  <h3>Higher Concurrent Users</h3>
+  <p>Same GPU footprint, more than five times the concurrency — prefill offloaded to aiDAPTIV Cache Memory.</p>
+</td>
+<td align="center" width="33%">
+  <h2><strong>800B</strong></h2>
+  <h3>Parameter Models</h3>
+  <p>Train and serve LLMs up to 800B parameters with aiDAPTIV memory extension.</p>
 </td>
 </tr>
 </table>
 
-### Common Use Cases — Production-Proven
+<p align="center">
+  <img src="docs/svg-gpu-results-en.svg" alt="GPU Server concurrent users with and without aiDAPTIV" width="800" />
+</p>
 
-Private enterprise AI · Generative AI platforms · AI agents · RAG search · AI meeting assistants · Visual recognition · AI inference / edge computing
+> **Inference Speed — Multi-GPU DAS Benchmark**
+
+| GPU | Model | aiDAPTIV Cache | Users (w/o → w/) | TTFT (w/o → w/) | TPS (w/o → w/) |
+| --- | --- | --- | --- | --- | --- |
+| RTX 6000 Ada ×8 | GPT-OSS-120B | AI100 ×2 | 10 → **40** | 6.7s → **2.3s** | 28.3 → 28.0 |
+| RTX PRO 6000 ×8 | GPT-OSS-120B | AI100 ×2 | 20 → **60** | 10.1s → **2.6s** | 18.8 → **21.3** |
+| H200 ×8 | Llama 3.3 70B | AI200 ×4 | 20 → **100** | 7.4s → 8.3s | 21.7 → **22.2** |
+| B300 ×8 | Llama 3.3 70B | AI200 ×8 | 60 → **180** | 9.4s → 9.9s | 16.5 → **17.7** |
+
+> Benchmark: TTFT < 10 s · TPS > 20 tokens/sec · input token length = 16K.
+
+---
+
+## Storage Server Benefits
+
+> **Three Access Modes, One Unified Storage Platform**
+
+Storage Server converges Block, File, and Object storage onto a single cluster — eliminating silos without sacrificing performance or protocol fidelity. One NVMe cluster serves Kubernetes CSI, NFS/SMB, and S3 workloads simultaneously, with per-volume policy controls for IOPS limits, snapshot schedules, and replication targets.
+
+<table>
+<tr>
+<td align="center" width="33%">
+  <h2><strong>~460 TB</strong></h2>
+  <h3>Usable Capacity</h3>
+  <p>Usable capacity from a 3-node NVMe cluster with EC 2+1 erasure coding.</p>
+</td>
+<td align="center" width="33%">
+  <h2><strong>~20 GB/s</strong></h2>
+  <h3>Read Throughput</h3>
+  <p>100Gb network and Pascari NVMe SSDs deliver aggregate read bandwidth for AI datasets.</p>
+</td>
+<td align="center" width="33%">
+  <h2><strong>~33K</strong></h2>
+  <h3>Random Read IOPS</h3>
+  <p>Block, File, and S3 Object access on a single cluster — no storage silos.</p>
+</td>
+</tr>
+</table>
+
+<p align="center">
+  <img src="docs/svg-storage-access-en.svg" alt="Three access modes converging on one unified storage platform" width="800" />
+</p>
+
+<table>
+<tr>
+<td width="33%" valign="top">
+  <h4>EC 2+1 Erasure Coding</h4>
+  <p>Tolerates simultaneous SSD and node failures with automatic rebuild — 66% usable efficiency, superior to 3-way replication.</p>
+</td>
+<td width="33%" valign="top">
+  <h4>Automatic Failure-Domain Rebalancing</h4>
+  <p>Hot-add SSDs or nodes and the platform redistributes data across the expanded cluster with zero downtime.</p>
+</td>
+<td width="33%" valign="top">
+  <h4>Unified External Plane</h4>
+  <p>One cluster serves Block, File, and S3 simultaneously with per-volume policy controls and protocol fidelity.</p>
+</td>
+</tr>
+</table>
 
 ---

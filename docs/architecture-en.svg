@@ -21,119 +21,179 @@
 
     .gw-wire  { stroke: rgba(var(--ink), 0.40); stroke-width: 1.5; stroke-linecap: round; stroke-dasharray: 4 4; animation: gwFlow 0.8s linear infinite; }
     .gw-arrow { fill: #f7941d; animation: gwPulse 2s ease-in-out infinite; }
-    .gw-lbl   { fill: rgba(var(--ink), 0.72); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+    .gw-pill  { fill: rgba(247,148,29,0.12); stroke: #f7941d; stroke-width: 1.2; }
+    .gw-lbl   { fill: rgba(var(--ink), 0.78); font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
 
     @keyframes brandPulse { 0%, 100% { stroke-opacity: 0.55; } 50% { stroke-opacity: 1; } }
     @keyframes gwFlow { to { stroke-dashoffset: -16; } }
     @keyframes gwPulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+    /* ── Sequential storytelling reveal (bottom-up), looping ──
+       One shared 11s cycle: each group rises into view at its own
+       moment, the full diagram holds, then everything fades out
+       together and the build replays. */
+    .seq { opacity: 0; animation-duration: 11s; animation-timing-function: cubic-bezier(.2,.7,.3,1); animation-iteration-count: infinite; }
+    .seq-l1   { animation-name: revL1; }
+    .seq-l2   { animation-name: revL2; }
+    .seq-iaas { animation-name: revIaaS; }
+    .seq-l3   { animation-name: revL3; }
+    .seq-l4   { animation-name: revL4; }
+    .seq-paas { animation-name: revPaaS; }
+    .seq-plat { animation-name: revPlat; }
+    .seq-gw   { animation-name: revGw; }
+    .seq-apps { animation-name: revApps; }
+    .seq-eco  { animation-name: revEco; }
+
+    /* head: hidden until reveal start → rise in over ~0.7s.
+       tail (shared): hold to 90%, fade out by 97%, blank to 100% → rebuild. */
+    @keyframes revL1   { 0%,2.7% { opacity:0; transform:translateY(16px); }  9.1% { opacity:1; transform:translateY(0); } 90% { opacity:1; transform:translateY(0); } 97%,100% { opacity:0; transform:translateY(0); } }
+    @keyframes revL2   { 0%,10%  { opacity:0; transform:translateY(16px); } 16.4% { opacity:1; transform:translateY(0); } 90% { opacity:1; transform:translateY(0); } 97%,100% { opacity:0; transform:translateY(0); } }
+    @keyframes revIaaS { 0%,17.3%{ opacity:0; transform:translateY(16px); } 23.7% { opacity:1; transform:translateY(0); } 90% { opacity:1; transform:translateY(0); } 97%,100% { opacity:0; transform:translateY(0); } }
+    @keyframes revL3   { 0%,22.7%{ opacity:0; transform:translateY(16px); } 29.1% { opacity:1; transform:translateY(0); } 90% { opacity:1; transform:translateY(0); } 97%,100% { opacity:0; transform:translateY(0); } }
+    @keyframes revL4   { 0%,30%  { opacity:0; transform:translateY(16px); } 36.4% { opacity:1; transform:translateY(0); } 90% { opacity:1; transform:translateY(0); } 97%,100% { opacity:0; transform:translateY(0); } }
+    @keyframes revPaaS { 0%,37.3%{ opacity:0; transform:translateY(16px); } 43.7% { opacity:1; transform:translateY(0); } 90% { opacity:1; transform:translateY(0); } 97%,100% { opacity:0; transform:translateY(0); } }
+    @keyframes revPlat { 0%,42.7%{ opacity:0; transform:translateY(16px); } 49.1% { opacity:1; transform:translateY(0); } 90% { opacity:1; transform:translateY(0); } 97%,100% { opacity:0; transform:translateY(0); } }
+    @keyframes revGw   { 0%,50%  { opacity:0; transform:translateY(16px); } 56.4% { opacity:1; transform:translateY(0); } 90% { opacity:1; transform:translateY(0); } 97%,100% { opacity:0; transform:translateY(0); } }
+    @keyframes revApps { 0%,57.3%{ opacity:0; transform:translateY(16px); } 63.7% { opacity:1; transform:translateY(0); } 90% { opacity:1; transform:translateY(0); } 97%,100% { opacity:0; transform:translateY(0); } }
+    @keyframes revEco  { 0%,64.5%{ opacity:0; transform:translateY(16px); } 70.9% { opacity:1; transform:translateY(0); } 90% { opacity:1; transform:translateY(0); } 97%,100% { opacity:0; transform:translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .seq { opacity: 1; animation: none; }
+      .brand-cell, .gw-wire, .gw-arrow { animation: none; }
+    }
   </style>
 
   <!-- ══ Band 1 · Partner Ecosystem ══ -->
-  <text class="title" x="412" y="28" text-anchor="middle">Partner Ecosystem</text>
-  <rect class="band-dash" x="56" y="40" width="712" height="58" rx="12" />
-  <text class="band-lbl" x="78" y="75">Third-Party Ecosystem</text>
-  <text class="accent" x="746" y="75" text-anchor="end">SecureMeet · OrientAI · digiRunner · VIKI · Phison Agentic Hub</text>
+  <g class="seq seq-eco">
+    <text class="title" x="412" y="28" text-anchor="middle">Partner Ecosystem</text>
+    <rect class="band-dash" x="56" y="40" width="712" height="58" rx="12" />
+    <text class="band-lbl" x="78" y="75">Third-Party Ecosystem</text>
+    <text class="accent" x="746" y="75" text-anchor="end">SecureMeet · OrientAI · digiRunner · VIKI · Phison Agentic Hub</text>
+  </g>
 
   <!-- ══ Band 2 · Native Apps ══ -->
-  <text class="title" x="412" y="130" text-anchor="middle">Native Apps</text>
-  <rect class="band-dash" x="56" y="142" width="712" height="104" rx="12" />
-  <text class="band-lbl" x="78" y="172">Agentic Generative BI</text>
-  <text class="accent" x="746" y="172" text-anchor="end">WrenAI</text>
-  <rect class="cell" x="74"  y="188" width="158" height="44" rx="8" />
-  <rect class="cell" x="242" y="188" width="158" height="44" rx="8" />
-  <rect class="cell" x="410" y="188" width="158" height="44" rx="8" />
-  <rect class="cell" x="578" y="188" width="158" height="44" rx="8" />
-  <text class="cell-lbl" x="153" y="214" text-anchor="middle">Conversational Analytics</text>
-  <text class="cell-lbl" x="321" y="214" text-anchor="middle">Visual Dashboards</text>
-  <text class="cell-lbl" x="489" y="214" text-anchor="middle">Slack / Teams Embed</text>
-  <text class="cell-lbl" x="657" y="214" text-anchor="middle">Embedded AI Apps</text>
-  <text class="margin" x="790" y="200">SaaS</text>
+  <g class="seq seq-apps">
+    <text class="title" x="412" y="130" text-anchor="middle">Native Apps</text>
+    <rect class="band-dash" x="56" y="142" width="712" height="104" rx="12" />
+    <text class="band-lbl" x="78" y="172">Agentic Generative BI</text>
+    <text class="accent" x="746" y="172" text-anchor="end">WrenAI</text>
+    <rect class="cell" x="74"  y="188" width="158" height="44" rx="8" />
+    <rect class="cell" x="242" y="188" width="158" height="44" rx="8" />
+    <rect class="cell" x="410" y="188" width="158" height="44" rx="8" />
+    <rect class="cell" x="578" y="188" width="158" height="44" rx="8" />
+    <text class="cell-lbl" x="153" y="214" text-anchor="middle">Conversational Analytics</text>
+    <text class="cell-lbl" x="321" y="214" text-anchor="middle">Visual Dashboards</text>
+    <text class="cell-lbl" x="489" y="214" text-anchor="middle">Slack / Teams Embed</text>
+    <text class="cell-lbl" x="657" y="214" text-anchor="middle">Embedded AI Apps</text>
+    <text class="margin" x="790" y="200">SaaS</text>
+  </g>
 
   <!-- ══ Gateway ══ -->
-  <line class="gw-wire" x1="220" y1="250" x2="220" y2="308" />
-  <line class="gw-wire" x1="412" y1="250" x2="412" y2="308" />
-  <line class="gw-wire" x1="604" y1="250" x2="604" y2="308" />
-  <path class="gw-arrow" d="M412 248 l-5 7 h10 z" />
-  <path class="gw-arrow" d="M412 310 l-5 -7 h10 z" />
-  <text class="gw-lbl" x="448" y="283">API / AI Gateway</text>
+  <g class="seq seq-gw">
+    <line class="gw-wire" x1="220" y1="250" x2="220" y2="308" />
+    <line class="gw-wire" x1="412" y1="250" x2="412" y2="308" />
+    <line class="gw-wire" x1="604" y1="250" x2="604" y2="308" />
+    <path class="gw-arrow" d="M412 248 l-5 7 h10 z" />
+    <path class="gw-arrow" d="M412 310 l-5 -7 h10 z" />
+    <rect class="gw-pill" x="350" y="262" width="124" height="26" rx="13" />
+    <text class="gw-lbl" x="412" y="280" text-anchor="middle">API / AI Gateway</text>
+  </g>
 
   <!-- ══ Platform ══ -->
-  <text class="title" x="412" y="305" text-anchor="middle">Phison AI Data Platform</text>
-  <rect class="container" x="56" y="316" width="712" height="548" rx="14" />
-  <text class="Llabel" x="34" y="382" text-anchor="middle">L4</text>
-  <text class="Llabel" x="34" y="486" text-anchor="middle">L3</text>
-  <text class="Llabel" x="34" y="616" text-anchor="middle">L2</text>
-  <text class="Llabel" x="34" y="786" text-anchor="middle">L1</text>
+  <g class="seq seq-plat">
+    <text class="title" x="412" y="305" text-anchor="middle">Phison AI Data Platform</text>
+    <rect class="container" x="56" y="316" width="712" height="548" rx="14" />
+  </g>
 
   <!-- L4 · Reusable AI Module Layer -->
-  <rect class="band" x="64" y="332" width="696" height="94" rx="10" />
-  <text class="band-lbl" x="84" y="355">Reusable AI Module Layer</text>
-  <rect class="cell" x="84"  y="366" width="124" height="48" rx="8" />
-  <rect class="cell" x="218" y="366" width="124" height="48" rx="8" />
-  <rect class="cell" x="352" y="366" width="124" height="48" rx="8" />
-  <rect class="cell" x="486" y="366" width="124" height="48" rx="8" />
-  <rect class="cell" x="620" y="366" width="124" height="48" rx="8" />
-  <text class="cell-lbl" x="146" y="394" text-anchor="middle">Vision</text>
-  <text class="cell-lbl" x="280" y="394" text-anchor="middle">Speech</text>
-  <text class="cell-lbl" x="414" y="394" text-anchor="middle">Inference</text>
-  <text class="cell-lbl" x="548" y="394" text-anchor="middle">Data Bridge</text>
-  <text class="cell-lbl" x="682" y="394" text-anchor="middle">MLOps / LLMOps</text>
+  <g class="seq seq-l4">
+    <text class="Llabel" x="34" y="382" text-anchor="middle">L4</text>
+    <rect class="band" x="64" y="332" width="696" height="94" rx="10" />
+    <text class="band-lbl" x="84" y="355">Reusable AI Module Layer</text>
+    <rect class="cell" x="84"  y="366" width="124" height="48" rx="8" />
+    <rect class="cell" x="218" y="366" width="124" height="48" rx="8" />
+    <rect class="cell" x="352" y="366" width="124" height="48" rx="8" />
+    <rect class="cell" x="486" y="366" width="124" height="48" rx="8" />
+    <rect class="cell" x="620" y="366" width="124" height="48" rx="8" />
+    <text class="cell-lbl" x="146" y="394" text-anchor="middle">Vision</text>
+    <text class="cell-lbl" x="280" y="394" text-anchor="middle">Speech</text>
+    <text class="cell-lbl" x="414" y="394" text-anchor="middle">Inference</text>
+    <text class="cell-lbl" x="548" y="394" text-anchor="middle">Data Bridge</text>
+    <text class="cell-lbl" x="682" y="394" text-anchor="middle">MLOps / LLMOps</text>
+  </g>
 
   <!-- L3 · Reusable Open-Source Components -->
-  <rect class="band" x="64" y="436" width="696" height="94" rx="10" />
-  <text class="band-lbl" x="84" y="459">Reusable Open-Source Components</text>
-  <rect class="brand-cell" x="84"  y="470" width="88" height="48" rx="8" />
-  <rect class="cell" x="180" y="470" width="88" height="48" rx="8" />
-  <rect class="cell" x="276" y="470" width="88" height="48" rx="8" />
-  <rect class="cell" x="372" y="470" width="88" height="48" rx="8" />
-  <rect class="cell" x="468" y="470" width="88" height="48" rx="8" />
-  <rect class="cell" x="564" y="470" width="88" height="48" rx="8" />
-  <rect class="cell" x="660" y="470" width="88" height="48" rx="8" />
-  <text class="cell-lbl" x="128" y="498" text-anchor="middle" fill="#f7941d" font-weight="700">aiDAPTIV</text>
-  <text class="cell-lbl" x="224" y="498" text-anchor="middle">Frameworks</text>
-  <text class="cell-lbl" x="320" y="498" text-anchor="middle">Msg Queue</text>
-  <text class="cell-lbl" x="416" y="498" text-anchor="middle">Database</text>
-  <text class="cell-lbl" x="512" y="498" text-anchor="middle">Network</text>
-  <text class="cell-lbl" x="608" y="498" text-anchor="middle">Monitoring</text>
-  <text class="cell-lbl" x="704" y="498" text-anchor="middle">AI Models</text>
-  <text class="margin" x="790" y="486">PaaS</text>
+  <g class="seq seq-l3">
+    <text class="Llabel" x="34" y="486" text-anchor="middle">L3</text>
+    <rect class="band" x="64" y="436" width="696" height="94" rx="10" />
+    <text class="band-lbl" x="84" y="459">Reusable Open-Source Components</text>
+    <rect class="brand-cell" x="84"  y="470" width="88" height="48" rx="8" />
+    <rect class="cell" x="180" y="470" width="88" height="48" rx="8" />
+    <rect class="cell" x="276" y="470" width="88" height="48" rx="8" />
+    <rect class="cell" x="372" y="470" width="88" height="48" rx="8" />
+    <rect class="cell" x="468" y="470" width="88" height="48" rx="8" />
+    <rect class="cell" x="564" y="470" width="88" height="48" rx="8" />
+    <rect class="cell" x="660" y="470" width="88" height="48" rx="8" />
+    <text class="cell-lbl" x="128" y="498" text-anchor="middle" fill="#f7941d" font-weight="700">aiDAPTIV</text>
+    <text class="cell-lbl" x="224" y="498" text-anchor="middle">Frameworks</text>
+    <text class="cell-lbl" x="320" y="498" text-anchor="middle">Msg Queue</text>
+    <text class="cell-lbl" x="416" y="498" text-anchor="middle">Database</text>
+    <text class="cell-lbl" x="512" y="498" text-anchor="middle">Network</text>
+    <text class="cell-lbl" x="608" y="498" text-anchor="middle">Monitoring</text>
+    <text class="cell-lbl" x="704" y="498" text-anchor="middle">AI Models</text>
+  </g>
+
+  <!-- PaaS margin (appears after L3 + L4) -->
+  <g class="seq seq-paas">
+    <text class="margin" x="790" y="486">PaaS</text>
+  </g>
 
   <!-- L2 · Hyper-Converged Infrastructure Software -->
-  <rect class="band" x="64" y="540" width="696" height="152" rx="10" />
-  <text class="band-lbl" x="84" y="563">Hyper-Converged Infrastructure Software</text>
-  <text class="accent" x="740" y="563" text-anchor="end">Phison HCI</text>
-  <rect class="cell" x="84"  y="574" width="124" height="50" rx="8" />
-  <rect class="cell" x="218" y="574" width="124" height="50" rx="8" />
-  <rect class="cell" x="352" y="574" width="124" height="50" rx="8" />
-  <rect class="cell" x="486" y="574" width="124" height="50" rx="8" />
-  <rect class="cell" x="620" y="574" width="124" height="50" rx="8" />
-  <text class="cell-lbl" x="146" y="603" text-anchor="middle">Deploy / Container</text>
-  <text class="cell-lbl" x="280" y="603" text-anchor="middle">CPU Mgmt</text>
-  <text class="cell-lbl" x="414" y="603" text-anchor="middle">GPU Mgmt</text>
-  <text class="cell-lbl" x="548" y="603" text-anchor="middle">VM Mgmt</text>
-  <text class="cell-lbl" x="682" y="603" text-anchor="middle">GPU Virtualization</text>
-  <rect class="cell" x="84"  y="632" width="124" height="50" rx="8" />
-  <rect class="cell" x="218" y="632" width="124" height="50" rx="8" />
-  <rect class="cell" x="352" y="632" width="124" height="50" rx="8" />
-  <rect class="cell" x="486" y="632" width="124" height="50" rx="8" />
-  <rect class="cell" x="620" y="632" width="124" height="50" rx="8" />
-  <text class="cell-lbl" x="146" y="661" text-anchor="middle">App Marketplace</text>
-  <text class="cell-lbl" x="280" y="661" text-anchor="middle">Storage Mgmt</text>
-  <text class="cell-lbl" x="414" y="661" text-anchor="middle">Cost Mgmt</text>
-  <text class="cell-lbl" x="548" y="661" text-anchor="middle">Monitor &amp; Alert</text>
-  <text class="cell-lbl" x="682" y="661" text-anchor="middle">Access &amp; Security</text>
+  <g class="seq seq-l2">
+    <text class="Llabel" x="34" y="616" text-anchor="middle">L2</text>
+    <rect class="band" x="64" y="540" width="696" height="152" rx="10" />
+    <text class="band-lbl" x="84" y="563">Hyper-Converged Infrastructure Software</text>
+    <text class="accent" x="740" y="563" text-anchor="end">Phison HCI</text>
+    <rect class="cell" x="84"  y="574" width="124" height="50" rx="8" />
+    <rect class="cell" x="218" y="574" width="124" height="50" rx="8" />
+    <rect class="cell" x="352" y="574" width="124" height="50" rx="8" />
+    <rect class="cell" x="486" y="574" width="124" height="50" rx="8" />
+    <rect class="cell" x="620" y="574" width="124" height="50" rx="8" />
+    <text class="cell-lbl" x="146" y="603" text-anchor="middle">Deploy / Container</text>
+    <text class="cell-lbl" x="280" y="603" text-anchor="middle">CPU Mgmt</text>
+    <text class="cell-lbl" x="414" y="603" text-anchor="middle">GPU Mgmt</text>
+    <text class="cell-lbl" x="548" y="603" text-anchor="middle">VM Mgmt</text>
+    <text class="cell-lbl" x="682" y="603" text-anchor="middle">GPU Virtualization</text>
+    <rect class="cell" x="84"  y="632" width="124" height="50" rx="8" />
+    <rect class="cell" x="218" y="632" width="124" height="50" rx="8" />
+    <rect class="cell" x="352" y="632" width="124" height="50" rx="8" />
+    <rect class="cell" x="486" y="632" width="124" height="50" rx="8" />
+    <rect class="cell" x="620" y="632" width="124" height="50" rx="8" />
+    <text class="cell-lbl" x="146" y="661" text-anchor="middle">App Marketplace</text>
+    <text class="cell-lbl" x="280" y="661" text-anchor="middle">Storage Mgmt</text>
+    <text class="cell-lbl" x="414" y="661" text-anchor="middle">Cost Mgmt</text>
+    <text class="cell-lbl" x="548" y="661" text-anchor="middle">Monitor &amp; Alert</text>
+    <text class="cell-lbl" x="682" y="661" text-anchor="middle">Access &amp; Security</text>
+  </g>
 
   <!-- L1 · Infrastructure -->
-  <rect class="band" x="64" y="702" width="696" height="150" rx="10" />
-  <text class="band-lbl" x="84" y="725">Infrastructure Layer</text>
-  <rect class="cell"       x="84"  y="736" width="216" height="104" rx="8" />
-  <rect class="cell"       x="312" y="736" width="216" height="104" rx="8" />
-  <rect class="brand-cell" x="540" y="736" width="216" height="104" rx="8" />
-  <text class="cell-lbl" x="192" y="784" text-anchor="middle" font-size="13" font-weight="700">CPU Server</text>
-  <text class="sub-lbl"  x="192" y="804" text-anchor="middle">Intel · AMD · ARM</text>
-  <text class="cell-lbl" x="420" y="784" text-anchor="middle" font-size="13" font-weight="700">GPU Server</text>
-  <text class="sub-lbl"  x="420" y="804" text-anchor="middle">NVIDIA · AMD · Intel</text>
-  <text class="cell-lbl" x="648" y="784" text-anchor="middle" font-size="13" font-weight="700">Cache / Storage Server</text>
-  <text class="sub-lbl"  x="648" y="804" text-anchor="middle" fill="#f7941d">aiDAPTIV Cache Memory · Pascari SSD</text>
-  <text class="margin" x="790" y="730">IaaS</text>
+  <g class="seq seq-l1">
+    <text class="Llabel" x="34" y="786" text-anchor="middle">L1</text>
+    <rect class="band" x="64" y="702" width="696" height="150" rx="10" />
+    <text class="band-lbl" x="84" y="725">Infrastructure Layer</text>
+    <rect class="cell"       x="84"  y="736" width="212" height="104" rx="8" />
+    <rect class="cell"       x="308" y="736" width="212" height="104" rx="8" />
+    <rect class="brand-cell" x="532" y="736" width="212" height="104" rx="8" />
+    <text class="cell-lbl" x="190" y="784" text-anchor="middle" font-size="13" font-weight="700">CPU Server</text>
+    <text class="sub-lbl"  x="190" y="804" text-anchor="middle">Intel · AMD · ARM</text>
+    <text class="cell-lbl" x="414" y="784" text-anchor="middle" font-size="13" font-weight="700">GPU Server</text>
+    <text class="sub-lbl"  x="414" y="804" text-anchor="middle">NVIDIA · AMD · Intel</text>
+    <text class="cell-lbl" x="638" y="784" text-anchor="middle" font-size="13" font-weight="700">Cache / Storage Server</text>
+    <text class="sub-lbl"  x="638" y="804" text-anchor="middle" fill="#f7941d">aiDAPTIV Cache Memory · Pascari SSD</text>
+  </g>
+
+  <!-- IaaS margin (appears after L1 + L2) -->
+  <g class="seq seq-iaas">
+    <text class="margin" x="790" y="730">IaaS</text>
+  </g>
 </svg>

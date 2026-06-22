@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 478" fill="none" role="img" aria-label="GPU Server concurrent users: without vs with aiDAPTIV across three configurations">
+  <style>
+    svg { color-scheme: light dark; --ink: 228, 230, 238; }
+    @media (prefers-color-scheme: light) { svg { --ink: 30, 32, 44; } }
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+    .g-title  { fill: #f7941d; font-size: 16px; font-weight: 700; letter-spacing: 0.03em; }
+    .g-sub    { fill: rgba(var(--ink), 0.55); font-size: 11px; font-weight: 500; }
+    .g-axis   { fill: rgba(var(--ink), 0.42); font-size: 10px; font-weight: 600; }
+    .g-group  { fill: rgba(var(--ink), 0.78); font-size: 12px; font-weight: 700; }
+    .g-val    { fill: rgba(var(--ink), 0.92); font-size: 13px; font-weight: 800; }
+    .g-val-on { fill: #f7941d; font-size: 13px; font-weight: 800; }
+    .g-mul    { fill: #f7941d; font-size: 15px; font-weight: 800; }
+    .g-legend { fill: rgba(var(--ink), 0.62); font-size: 11px; font-weight: 600; }
+    .g-note   { fill: rgba(var(--ink), 0.42); font-size: 10px; font-weight: 500; font-style: italic; }
+
+    .g-grid   { stroke: rgba(var(--ink), 0.08); stroke-width: 1; }
+    .g-base   { stroke: rgba(var(--ink), 0.20); stroke-width: 1; }
+    .g-bar-wo { fill: rgba(var(--ink), 0.30); }
+    .g-bar-w  { fill: #f7941d; filter: drop-shadow(0 0 5px rgba(247,148,29,0.40)); }
+
+    .g-pulse  { animation: gPulse 2.6s ease-in-out infinite; }
+    @keyframes gPulse { 0%,100% { opacity: 0.85; } 50% { opacity: 1; } }
+  </style>
+
+  <!-- Header -->
+  <text class="g-title" x="40" y="34">GPU Server — Concurrent Users within SLA</text>
+  <text class="g-sub"   x="40" y="54">Same GPU hardware · aiDAPTIV expands effective AI memory in software — up to 5× more users</text>
+
+  <!-- Y grid + axis (0–200 CCU) -->
+  <line class="g-grid" x1="70" y1="80"  x2="740" y2="80" />
+  <line class="g-grid" x1="70" y1="140" x2="740" y2="140" />
+  <line class="g-grid" x1="70" y1="200" x2="740" y2="200" />
+  <line class="g-grid" x1="70" y1="260" x2="740" y2="260" />
+  <line class="g-grid" x1="70" y1="320" x2="740" y2="320" />
+  <line class="g-base" x1="70" y1="380" x2="740" y2="380" />
+  <text class="g-axis" x="60" y="84"  text-anchor="end">200</text>
+  <text class="g-axis" x="60" y="144" text-anchor="end">160</text>
+  <text class="g-axis" x="60" y="204" text-anchor="end">120</text>
+  <text class="g-axis" x="60" y="264" text-anchor="end">80</text>
+  <text class="g-axis" x="60" y="324" text-anchor="end">40</text>
+  <text class="g-axis" x="60" y="384" text-anchor="end">0</text>
+  <text class="g-axis" x="60" y="402" text-anchor="end">CCU</text>
+
+  <!-- ── Group 1 · RTX PRO 6000 ×8 (20 → 60, 3×) ── -->
+  <rect class="g-bar-wo" x="146" y="350" width="60" height="30"  rx="2" />
+  <rect class="g-bar-w g-pulse"  x="214" y="290" width="60" height="90"  rx="2" />
+  <text class="g-val"    x="176" y="342" text-anchor="middle">20</text>
+  <text class="g-val-on" x="244" y="282" text-anchor="middle">60</text>
+  <text class="g-mul"    x="244" y="266" text-anchor="middle">3×</text>
+  <text class="g-group"  x="210" y="404" text-anchor="middle">RTX PRO 6000 ×8</text>
+
+  <!-- ── Group 2 · H200 ×8 (20 → 100, 5×) ── -->
+  <rect class="g-bar-wo" x="341" y="350" width="60" height="30"  rx="2" />
+  <rect class="g-bar-w g-pulse"  x="409" y="230" width="60" height="150" rx="2" />
+  <text class="g-val"    x="371" y="342" text-anchor="middle">20</text>
+  <text class="g-val-on" x="439" y="222" text-anchor="middle">100</text>
+  <text class="g-mul"    x="439" y="206" text-anchor="middle">5×</text>
+  <text class="g-group"  x="405" y="404" text-anchor="middle">H200 ×8</text>
+
+  <!-- ── Group 3 · B300 ×8 (60 → 180, 3×) ── -->
+  <rect class="g-bar-wo" x="536" y="290" width="60" height="90"  rx="2" />
+  <rect class="g-bar-w g-pulse"  x="604" y="110" width="60" height="270" rx="2" />
+  <text class="g-val"    x="566" y="282" text-anchor="middle">60</text>
+  <text class="g-val-on" x="634" y="102" text-anchor="middle">180</text>
+  <text class="g-mul"    x="634" y="86"  text-anchor="middle">3×</text>
+  <text class="g-group"  x="600" y="404" text-anchor="middle">B300 ×8</text>
+
+  <!-- Legend -->
+  <rect class="g-bar-wo" x="234" y="430" width="14" height="10" rx="2" />
+  <text class="g-legend" x="256" y="439">Without aiDAPTIV</text>
+  <rect fill="#f7941d" x="392" y="430" width="14" height="10" rx="2" />
+  <text class="g-legend" x="414" y="439">With aiDAPTIV</text>
+
+  <!-- Note -->
+  <text class="g-note" x="400" y="466" text-anchor="middle">Benchmark · TTFT &lt; 10 s · TPS &gt; 20 tok/s · input token length = 16K</text>
+</svg>

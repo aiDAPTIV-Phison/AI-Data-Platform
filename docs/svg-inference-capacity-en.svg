@@ -1,35 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" fill="none" role="img" aria-label="Inference Capacity Explorer">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 690" fill="none" role="img" aria-label="Inference capacity: aiDAPTIV advantage across context lengths">
   <style>
     svg { color-scheme: light dark; --ink: 228, 230, 238; }
     @media (prefers-color-scheme: light) { svg { --ink: 30, 32, 44; } }
-
     text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
 
-    /* Typography */
-    .ice-title  { fill: #f7941d; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
-    .ice-label  { fill: rgba(var(--ink), 0.42); font-size: 10px; font-weight: 600; letter-spacing: 0.08em; }
+    .ice-title  { fill: #f7941d; font-size: 16px; font-weight: 700; letter-spacing: 0.03em; }
+    .ice-sub    { fill: rgba(var(--ink), 0.55); font-size: 11px; font-weight: 500; }
+    .ice-label  { fill: rgba(var(--ink), 0.55); font-size: 12px; font-weight: 700; }
     .ice-h2     { fill: rgba(var(--ink), 0.88); font-size: 14px; font-weight: 700; }
     .ice-h3     { fill: rgba(var(--ink), 0.78); font-size: 12px; font-weight: 700; }
     .ice-body   { fill: rgba(var(--ink), 0.62); font-size: 11px; font-weight: 400; }
-    .ice-body-s { fill: rgba(var(--ink), 0.42); font-size: 10px; font-weight: 400; }
+    .ice-body-s { fill: rgba(var(--ink), 0.40); font-size: 9px; font-weight: 600; }
     .ice-accent { fill: #f7941d; font-size: 13px; font-weight: 700; }
-    .ice-num    { fill: rgba(var(--ink), 0.88); font-size: 20px; font-weight: 800; }
+    .ice-num    { fill: rgba(var(--ink), 0.78); font-size: 18px; font-weight: 800; }
     .ice-num-brand { fill: #f7941d; font-size: 20px; font-weight: 800; }
+    .ice-off    { fill: rgba(var(--ink), 0.42); font-size: 13px; font-weight: 700; }
+    .ice-on     { fill: #f7941d; font-size: 13px; font-weight: 700; }
     .ice-chip   { fill: rgba(var(--ink), 0.62); font-size: 9px; font-weight: 600; }
     .ice-axis   { fill: rgba(var(--ink), 0.42); font-size: 9px; font-weight: 500; }
     .ice-legend { fill: rgba(var(--ink), 0.62); font-size: 10px; font-weight: 500; }
     .ice-hint   { fill: rgba(var(--ink), 0.42); font-size: 9px; font-weight: 500; font-style: italic; }
-    .ice-ver    { fill: rgba(var(--ink), 0.32); font-size: 9px; font-weight: 500; }
-    .ice-stat   { fill: #f7941d; font-size: 11px; font-weight: 700; }
-    .ice-stat-b { fill: #5b9bff; font-size: 11px; font-weight: 700; }
+    .ice-stat   { fill: #f7941d; font-weight: 700; }
 
-    /* Shapes */
     .ice-panel  { fill: rgba(var(--ink), 0.03); stroke: rgba(var(--ink), 0.12); stroke-width: 1; }
     .ice-card   { fill: rgba(var(--ink), 0.04); stroke: rgba(var(--ink), 0.14); stroke-width: 1; }
     .ice-bar-bg { fill: rgba(var(--ink), 0.06); }
     .ice-bar-l  { fill: rgba(var(--ink), 0.28); }
-    .ice-bar-r  { fill: #f7941d; }
+    .ice-bar-r  { fill: #f7941d; filter: drop-shadow(0 0 5px rgba(247,148,29,0.45)); }
     .ice-chip-bg{ fill: rgba(var(--ink), 0.06); stroke: rgba(var(--ink), 0.18); stroke-width: 0.8; }
+    .ice-pill   { fill: rgba(var(--ink), 0.04); stroke: rgba(var(--ink), 0.14); stroke-width: 1; }
+    .ice-hl     { fill: rgba(247,148,29,0.12); stroke: #f7941d; stroke-width: 1.4; }
+    .ice-strack { fill: rgba(var(--ink), 0.14); }
+    .ice-sfill  { fill: #f7941d; }
+    .ice-thumb  { fill: #f7941d; stroke: rgba(var(--ink), 0.30); stroke-width: 1.5; filter: drop-shadow(0 0 4px rgba(247,148,29,0.5)); }
     .ice-sla    { stroke: #ef4444; stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.6; }
     .ice-grid   { stroke: rgba(var(--ink), 0.06); stroke-width: 0.5; }
     .ice-line-l { stroke: rgba(var(--ink), 0.35); stroke-width: 1.8; fill: none; stroke-linejoin: round; }
@@ -37,156 +40,462 @@
     .ice-dot-l  { fill: rgba(var(--ink), 0.45); }
     .ice-dot-r  { fill: #f7941d; }
 
-    .ice-pulse  { animation: icePulse 2.6s ease-in-out infinite; }
-    @keyframes icePulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+    /* ── Looping story: step through 8K → 16K → 32K → 64K → 128K ── */
+    .scene { animation-duration: 22s; animation-iteration-count: infinite; animation-timing-function: linear; }
+    .s1 { animation-name: scene1; opacity: 0; }
+    .s2 { animation-name: scene2; opacity: 0; }
+    .s3 { animation-name: scene3; opacity: 1; }
+    .s4 { animation-name: scene4; opacity: 0; }
+    .s5 { animation-name: scene5; opacity: 0; }
+    @keyframes scene1 { 0% { opacity:1 } 18% { opacity:1 } 20.5% { opacity:0 } 97.5% { opacity:0 } 100% { opacity:1 } }
+    @keyframes scene2 { 0%,17.5% { opacity:0 } 20% { opacity:1 } 38% { opacity:1 } 40.5% { opacity:0 } 100% { opacity:0 } }
+    @keyframes scene3 { 0%,37.5% { opacity:0 } 40% { opacity:1 } 58% { opacity:1 } 60.5% { opacity:0 } 100% { opacity:0 } }
+    @keyframes scene4 { 0%,57.5% { opacity:0 } 60% { opacity:1 } 78% { opacity:1 } 80.5% { opacity:0 } 100% { opacity:0 } }
+    @keyframes scene5 { 0%,77.5% { opacity:0 } 80% { opacity:1 } 97.5% { opacity:1 } 100% { opacity:0 } }
+
+    .ice-hl { transform: translateX(324px); animation: iceHL 22s linear infinite; }
+    @keyframes iceHL { 0%,18% { transform:translateX(0) } 20%,38% { transform:translateX(162px) } 40%,58% { transform:translateX(324px) } 60%,78% { transform:translateX(486px) } 80%,98% { transform:translateX(648px) } 100% { transform:translateX(0) } }
+
+    @media (prefers-reduced-motion: reduce) { .scene, .ice-hl { animation: none; } }
   </style>
 
+  <!-- ══ Header ══ -->
+  <text class="ice-title" x="30" y="38">Inference Capacity</text>
+  <text class="ice-sub"   x="30" y="58">SLA tuned per context to maximize aiDAPTIV concurrent users &#183; H200 &#215;1</text>
 
-  <!-- ══ CCU Comparison Panel (top wide) ══ -->
-  <rect class="ice-panel" x="30" y="84" width="800" height="160" rx="12" />
-  <text class="ice-h2" x="50" y="112">Concurrent Users</text>
+  <!-- ══ Context selector ══ -->
+  <text class="ice-label" x="30" y="86">Context length</text>
+  <rect class="ice-pill" x="30" y="94" width="152" height="32" rx="10" />
+  <rect class="ice-pill" x="192" y="94" width="152" height="32" rx="10" />
+  <rect class="ice-pill" x="354" y="94" width="152" height="32" rx="10" />
+  <rect class="ice-pill" x="516" y="94" width="152" height="32" rx="10" />
+  <rect class="ice-pill" x="678" y="94" width="152" height="32" rx="10" />
+  <rect class="ice-hl" x="30" y="94" width="152" height="32" rx="10" />
+  <text class="ice-off" x="106" y="119" text-anchor="middle">8K</text>
+  <text class="ice-off" x="268" y="119" text-anchor="middle">16K</text>
+  <text class="ice-off" x="430" y="119" text-anchor="middle">32K</text>
+  <text class="ice-off" x="592" y="119" text-anchor="middle">64K</text>
+  <text class="ice-off" x="754" y="119" text-anchor="middle">128K</text>
 
-  <!-- Without aiDAPTIV bar -->
-  <text class="ice-body" x="50" y="156">Without aiDAPTIV</text>
-  <rect class="ice-bar-bg" x="190" y="144" width="620" height="18" rx="4" />
-  <rect class="ice-bar-l"  x="190" y="144" width="130" height="18" rx="4" />
-  <text class="ice-num" x="330" y="160">13</text>
+  <!-- ══ SLA controls ══ -->
+  <rect class="ice-card" x="30" y="144" width="390" height="74" rx="12" />
+  <text class="ice-h3" x="48" y="168">TTFT SLA</text>
+  <text class="ice-body" x="48" y="190">Upper bound</text>
+  <rect class="ice-strack" x="48" y="200" width="354" height="6" rx="3" />
 
-  <!-- With aiDAPTIV bar -->
-  <text class="ice-accent" x="50" y="196">With aiDAPTIV</text>
-  <rect class="ice-bar-bg" x="190" y="184" width="620" height="18" rx="4" />
-  <rect class="ice-bar-r"  x="190" y="184" width="390" height="18" rx="4" />
-  <text class="ice-num-brand" x="590" y="200">39</text>
+  <rect class="ice-card" x="440" y="144" width="390" height="74" rx="12" />
+  <text class="ice-h3" x="458" y="168">TPS SLA</text>
+  <text class="ice-body" x="458" y="190">Lower bound</text>
+  <text class="ice-accent" x="812" y="190" text-anchor="end">&#8805; 20 tok/s</text>
+  <rect class="ice-strack" x="458" y="200" width="354" height="6" rx="3" />
+  <rect class="ice-sfill"  x="458" y="200" width="71" height="6" rx="3" />
+  <circle class="ice-thumb" cx="529" cy="203" r="7" />
 
-  <!-- Summary stats -->
-  <text class="ice-stat" x="810" y="228" text-anchor="end">
-    <tspan class="ice-stat">Concurrent users 295% increased</tspan>
-    <tspan style="fill: rgba(var(--ink), 0.25); font-weight: 400;" dx="10">|</tspan>
-    <tspan class="ice-stat" dx="10">GPU capacity 66.1% saved</tspan>
-  </text>
+  <!-- ══ CCU panel ══ -->
+  <rect class="ice-panel" x="30" y="224" width="800" height="150" rx="12" />
+  <text class="ice-h2" x="50" y="252">Concurrent Users within SLA</text>
+  <text class="ice-body"   x="50" y="284">Without aiDAPTIV</text>
+  <rect class="ice-bar-bg" x="190" y="270" width="560" height="18" rx="4" />
+  <text class="ice-accent" x="50" y="324">With aiDAPTIV</text>
+  <rect class="ice-bar-bg" x="190" y="310" width="560" height="18" rx="4" />
 
-  <!-- ══════════════════════════════════════════════════ -->
-  <!-- TTFT Chart (bottom left)                          -->
-  <!-- ══════════════════════════════════════════════════ -->
-  <rect class="ice-card" x="30" y="260" width="390" height="234" rx="12" />
-  <text class="ice-h3" x="50" y="288">TTFT</text>
-  <text class="ice-hint" x="90" y="288">Lower is better</text>
+  <!-- ══ TTFT chart ══ -->
+  <rect class="ice-card" x="30" y="386" width="390" height="234" rx="12" />
+  <text class="ice-h3" x="50" y="414">TTFT</text>
+  <text class="ice-hint" x="92" y="414">Lower is better</text>
+  <line class="ice-grid" x1="80" y1="440" x2="400" y2="440" />
+  <line class="ice-grid" x1="80" y1="475" x2="400" y2="475" />
+  <line class="ice-grid" x1="80" y1="510" x2="400" y2="510" />
+  <line class="ice-grid" x1="80" y1="545" x2="400" y2="545" />
+  <line class="ice-grid" x1="80" y1="580" x2="400" y2="580" />
+  <text class="ice-axis" x="80" y="596" text-anchor="middle">10</text>
+  <text class="ice-axis" x="144" y="596" text-anchor="middle">20</text>
+  <text class="ice-axis" x="208" y="596" text-anchor="middle">30</text>
+  <text class="ice-axis" x="272" y="596" text-anchor="middle">50</text>
+  <text class="ice-axis" x="336" y="596" text-anchor="middle">60</text>
+  <text class="ice-axis" x="400" y="596" text-anchor="middle">80</text>
+  <text class="ice-axis" x="240" y="610" text-anchor="middle">Concurrent Users</text>
 
-  <!-- Y-axis labels -->
-  <text class="ice-axis" x="54" y="318">60s</text>
-  <text class="ice-axis" x="54" y="353">40s</text>
-  <text class="ice-axis" x="54" y="388">20s</text>
-  <text class="ice-axis" x="54" y="423">10s</text>
-  <text class="ice-axis" x="60" y="458">0</text>
+  <!-- ══ TPS chart ══ -->
+  <rect class="ice-card" x="440" y="386" width="390" height="234" rx="12" />
+  <text class="ice-h3" x="460" y="414">Token Per Second</text>
+  <text class="ice-hint" x="582" y="414">Higher is better</text>
+  <line class="ice-grid" x1="490" y1="440" x2="810" y2="440" />
+  <line class="ice-grid" x1="490" y1="475" x2="810" y2="475" />
+  <line class="ice-grid" x1="490" y1="510" x2="810" y2="510" />
+  <line class="ice-grid" x1="490" y1="545" x2="810" y2="545" />
+  <line class="ice-grid" x1="490" y1="580" x2="810" y2="580" />
+  <text class="ice-axis" x="490" y="596" text-anchor="middle">10</text>
+  <text class="ice-axis" x="554" y="596" text-anchor="middle">20</text>
+  <text class="ice-axis" x="618" y="596" text-anchor="middle">30</text>
+  <text class="ice-axis" x="682" y="596" text-anchor="middle">50</text>
+  <text class="ice-axis" x="746" y="596" text-anchor="middle">60</text>
+  <text class="ice-axis" x="810" y="596" text-anchor="middle">80</text>
+  <text class="ice-axis" x="650" y="610" text-anchor="middle">Concurrent Users</text>
 
-  <!-- Grid lines -->
-  <line class="ice-grid" x1="80" y1="314" x2="400" y2="314" />
-  <line class="ice-grid" x1="80" y1="349" x2="400" y2="349" />
-  <line class="ice-grid" x1="80" y1="384" x2="400" y2="384" />
-  <line class="ice-grid" x1="80" y1="419" x2="400" y2="419" />
-  <line class="ice-grid" x1="80" y1="454" x2="400" y2="454" />
+  <!-- ══ Legend & static chips ══ -->
+  <rect fill="rgba(var(--ink), 0.28)" x="30" y="638" width="10" height="10" rx="2" />
+  <text class="ice-legend" x="46" y="647">Without aiDAPTIV</text>
+  <rect fill="#f7941d" x="160" y="638" width="10" height="10" rx="2" />
+  <text class="ice-legend" x="176" y="647">With aiDAPTIV</text>
+  <line class="ice-sla" x1="284" y1="643" x2="304" y2="643" />
+  <text class="ice-legend" x="310" y="647">SLA threshold</text>
 
-  <!-- SLA line at 10s -->
-  <line class="ice-sla" x1="80" y1="419" x2="400" y2="419" />
+  <rect class="ice-chip-bg" x="448" y="634" width="74" height="20" rx="10" />
+  <text class="ice-chip" x="485" y="647" text-anchor="middle">H200 &#215;1</text>
+  <rect class="ice-chip-bg" x="525" y="634" width="80" height="20" rx="10" />
+  <rect class="ice-chip-bg" x="608" y="634" width="92" height="20" rx="10" />
+  <rect class="ice-chip-bg" x="708" y="634" width="84" height="20" rx="10" />
+  <text class="ice-chip" x="750" y="647" text-anchor="middle">TPS &#8805; 20 t/s</text>
 
-  <!-- Without aiDAPTIV line (32K: 7.76, 14.77, 22.54, 37.73, 45.7, 61.96) -->
-  <polyline class="ice-line-l" points="80,437 144,422 208,406 272,373 336,356 400,321" />
-  <circle class="ice-dot-l" cx="80"  cy="437" r="3" />
-  <circle class="ice-dot-l" cx="144" cy="422" r="3" />
-  <circle class="ice-dot-l" cx="208" cy="406" r="3" />
-  <circle class="ice-dot-l" cx="272" cy="373" r="3" />
-  <circle class="ice-dot-l" cx="336" cy="356" r="3" />
-  <circle class="ice-dot-l" cx="400" cy="321" r="3" />
+  <!-- ══ Scene 1 · 8K ══ -->
+  <g class="scene s1">
+    <text class="ice-on" x="106" y="119" text-anchor="middle">8K</text>
+    <text class="ice-body" x="824" y="86" text-anchor="end">Short Q&amp;A &#183; chatbot replies</text>
 
-  <!-- With aiDAPTIV line (32K: 2.93, 5.51, 7.87, 12.66, 15.3, 20.52) -->
-  <polyline class="ice-line-r" points="80,447 144,442 208,437 272,427 336,421 400,410" />
-  <circle class="ice-dot-r" cx="80"  cy="447" r="3" />
-  <circle class="ice-dot-r" cx="144" cy="442" r="3" />
-  <circle class="ice-dot-r" cx="208" cy="437" r="3" />
-  <circle class="ice-dot-r" cx="272" cy="427" r="3" />
-  <circle class="ice-dot-r" cx="336" cy="421" r="3" />
-  <circle class="ice-dot-r" cx="400" cy="410" r="3" />
+    <!-- TTFT SLA slider (tuned to maximize aiDAPTIV users) -->
+    <text class="ice-accent" x="402" y="190" text-anchor="end">&#8804; 6.8 s</text>
+    <rect class="ice-sfill" x="48" y="200" width="76" height="6" rx="3" />
+    <circle class="ice-thumb" cx="124" cy="203" r="7" />
 
-  <!-- X-axis labels -->
-  <text class="ice-axis" x="77"  y="470">10</text>
-  <text class="ice-axis" x="141" y="470">20</text>
-  <text class="ice-axis" x="205" y="470">30</text>
-  <text class="ice-axis" x="269" y="470">50</text>
-  <text class="ice-axis" x="333" y="470">60</text>
-  <text class="ice-axis" x="397" y="470">80</text>
-  <text class="ice-axis" x="220" y="484">Concurrent Users</text>
+    <!-- CCU bars + values -->
+    <rect class="ice-bar-l" x="190" y="270" width="259" height="18" rx="4" />
+    <rect class="ice-bar-r" x="190" y="310" width="560" height="18" rx="4" />
+    <text class="ice-num"       x="816" y="286" text-anchor="end">37</text>
+    <text class="ice-body-s"    x="816" y="298" text-anchor="end">limited by TP</text>
+    <text class="ice-num-brand" x="816" y="326" text-anchor="end">80+</text>
+    <text class="ice-body-s"    x="816" y="338" text-anchor="end">meets SLA at 80+</text>
 
-  <!-- ══════════════════════════════════════════════════ -->
-  <!-- TPS Chart (bottom right)                          -->
-  <!-- ══════════════════════════════════════════════════ -->
-  <rect class="ice-card" x="440" y="260" width="390" height="234" rx="12" />
-  <text class="ice-h3" x="460" y="288">Token Per Second</text>
-  <text class="ice-hint" x="580" y="288">Higher is better</text>
+    <!-- advantage combo -->
+    <text x="430" y="360" text-anchor="middle">
+      <tspan class="ice-stat" style="font-size:13px">+216%</tspan><tspan class="ice-body"> concurrent users  </tspan><tspan style="fill:rgba(var(--ink),0.25);font-weight:400">|</tspan><tspan class="ice-stat" style="font-size:13px">  53.7%</tspan><tspan class="ice-body"> GPU capacity saved</tspan>
+    </text>
 
-  <!-- Y-axis labels -->
-  <text class="ice-axis" x="460" y="318">80</text>
-  <text class="ice-axis" x="460" y="348">60</text>
-  <text class="ice-axis" x="460" y="378">40</text>
-  <text class="ice-axis" x="460" y="408">20</text>
-  <text class="ice-axis" x="466" y="458">0</text>
+    <!-- TTFT chart -->
+    <text class="ice-axis" x="74" y="444" text-anchor="end">12s</text>
+    <text class="ice-axis" x="74" y="479" text-anchor="end">9s</text>
+    <text class="ice-axis" x="74" y="514" text-anchor="end">6s</text>
+    <text class="ice-axis" x="74" y="549" text-anchor="end">3s</text>
+    <text class="ice-axis" x="74" y="584" text-anchor="end">0</text>
+    <line class="ice-sla" x1="80" y1="500.7" x2="400" y2="500.7" />
+    <polyline class="ice-line-l" points="80,552.2 144,540.7 208,525.4 272,492.9 336,478.1 400,446.4" />
+    <polyline class="ice-line-r" points="80,569.4 144,561.2 208,548.5 272,530.1 336,519.9 400,500.9" />
+    <circle class="ice-dot-l" cx="80" cy="552.2" r="3" />
+    <circle class="ice-dot-l" cx="144" cy="540.7" r="3" />
+    <circle class="ice-dot-l" cx="208" cy="525.4" r="3" />
+    <circle class="ice-dot-l" cx="272" cy="492.9" r="3" />
+    <circle class="ice-dot-l" cx="336" cy="478.1" r="3" />
+    <circle class="ice-dot-l" cx="400" cy="446.4" r="3" />
+    <circle class="ice-dot-r" cx="80" cy="569.4" r="3" />
+    <circle class="ice-dot-r" cx="144" cy="561.2" r="3" />
+    <circle class="ice-dot-r" cx="208" cy="548.5" r="3" />
+    <circle class="ice-dot-r" cx="272" cy="530.1" r="3" />
+    <circle class="ice-dot-r" cx="336" cy="519.9" r="3" />
+    <circle class="ice-dot-r" cx="400" cy="500.9" r="3" />
 
-  <!-- Grid lines -->
-  <line class="ice-grid" x1="490" y1="314" x2="810" y2="314" />
-  <line class="ice-grid" x1="490" y1="344" x2="810" y2="344" />
-  <line class="ice-grid" x1="490" y1="374" x2="810" y2="374" />
-  <line class="ice-grid" x1="490" y1="404" x2="810" y2="404" />
-  <line class="ice-grid" x1="490" y1="454" x2="810" y2="454" />
+    <!-- TPS chart -->
+    <text class="ice-axis" x="484" y="444" text-anchor="end">90</text>
+    <text class="ice-axis" x="484" y="479" text-anchor="end">68</text>
+    <text class="ice-axis" x="484" y="514" text-anchor="end">45</text>
+    <text class="ice-axis" x="484" y="549" text-anchor="end">22</text>
+    <text class="ice-axis" x="484" y="584" text-anchor="end">0</text>
+    <line class="ice-sla" x1="490" y1="548.9" x2="810" y2="548.9" />
+    <polyline class="ice-line-r" points="490,443.1 554,487.2 618,495.3 682,520.1 746,521.7 810,527.4" />
+    <polyline class="ice-line-l" points="490,512.5 554,525.7 618,545.6 682,554.9 746,556.5 810,560.4" />
+    <circle class="ice-dot-r" cx="490" cy="443.1" r="3" />
+    <circle class="ice-dot-r" cx="554" cy="487.2" r="3" />
+    <circle class="ice-dot-r" cx="618" cy="495.3" r="3" />
+    <circle class="ice-dot-r" cx="682" cy="520.1" r="3" />
+    <circle class="ice-dot-r" cx="746" cy="521.7" r="3" />
+    <circle class="ice-dot-r" cx="810" cy="527.4" r="3" />
+    <circle class="ice-dot-l" cx="490" cy="512.5" r="3" />
+    <circle class="ice-dot-l" cx="554" cy="525.7" r="3" />
+    <circle class="ice-dot-l" cx="618" cy="545.6" r="3" />
+    <circle class="ice-dot-l" cx="682" cy="554.9" r="3" />
+    <circle class="ice-dot-l" cx="746" cy="556.5" r="3" />
+    <circle class="ice-dot-l" cx="810" cy="560.4" r="3" />
 
-  <!-- SLA line at 20 t/s -->
-  <line class="ice-sla" x1="490" y1="404" x2="810" y2="404" />
+    <text class="ice-chip" x="565" y="647" text-anchor="middle">8K context</text>
+    <text class="ice-chip" x="654" y="647" text-anchor="middle">TTFT &#8804; 6.8s</text>
+  </g>
+  <!-- ══ Scene 2 · 16K ══ -->
+  <g class="scene s2">
+    <text class="ice-on" x="268" y="119" text-anchor="middle">16K</text>
+    <text class="ice-body" x="824" y="86" text-anchor="end">Document summary &#183; code review</text>
 
-  <!-- With aiDAPTIV line (32K: 66.31, 41.21, 45.63, 41.83, 39.59, 36.21) -->
-  <polyline class="ice-line-r" points="490,330 554,377 618,368 682,375 746,380 810,386" />
-  <circle class="ice-dot-r" cx="490" cy="330" r="3" />
-  <circle class="ice-dot-r" cx="554" cy="377" r="3" />
-  <circle class="ice-dot-r" cx="618" cy="368" r="3" />
-  <circle class="ice-dot-r" cx="682" cy="375" r="3" />
-  <circle class="ice-dot-r" cx="746" cy="380" r="3" />
-  <circle class="ice-dot-r" cx="810" cy="386" r="3" />
+    <!-- TTFT SLA slider (tuned to maximize aiDAPTIV users) -->
+    <text class="ice-accent" x="402" y="190" text-anchor="end">&#8804; 11.4 s</text>
+    <rect class="ice-sfill" x="48" y="200" width="131" height="6" rx="3" />
+    <circle class="ice-thumb" cx="179" cy="203" r="7" />
 
-  <!-- Without aiDAPTIV line (32K: 30.93, 14.12, 12.32, 10.4, 8.4, 7.86) -->
-  <polyline class="ice-line-l" points="490,396 554,427 618,431 682,434 746,438 810,439" />
-  <circle class="ice-dot-l" cx="490" cy="396" r="3" />
-  <circle class="ice-dot-l" cx="554" cy="427" r="3" />
-  <circle class="ice-dot-l" cx="618" cy="431" r="3" />
-  <circle class="ice-dot-l" cx="682" cy="434" r="3" />
-  <circle class="ice-dot-l" cx="746" cy="438" r="3" />
-  <circle class="ice-dot-l" cx="810" cy="439" r="3" />
+    <!-- CCU bars + values -->
+    <rect class="ice-bar-l" x="190" y="270" width="203" height="18" rx="4" />
+    <rect class="ice-bar-r" x="190" y="310" width="560" height="18" rx="4" />
+    <text class="ice-num"       x="816" y="286" text-anchor="end">29</text>
+    <text class="ice-body-s"    x="816" y="298" text-anchor="end">limited by TP</text>
+    <text class="ice-num-brand" x="816" y="326" text-anchor="end">80+</text>
+    <text class="ice-body-s"    x="816" y="338" text-anchor="end">meets SLA at 80+</text>
 
-  <!-- X-axis labels -->
-  <text class="ice-axis" x="487" y="470">10</text>
-  <text class="ice-axis" x="551" y="470">20</text>
-  <text class="ice-axis" x="615" y="470">30</text>
-  <text class="ice-axis" x="679" y="470">50</text>
-  <text class="ice-axis" x="743" y="470">60</text>
-  <text class="ice-axis" x="807" y="470">80</text>
-  <text class="ice-axis" x="620" y="484">Concurrent Users</text>
+    <!-- advantage combo -->
+    <text x="430" y="360" text-anchor="middle">
+      <tspan class="ice-stat" style="font-size:13px">+277%</tspan><tspan class="ice-body"> concurrent users  </tspan><tspan style="fill:rgba(var(--ink),0.25);font-weight:400">|</tspan><tspan class="ice-stat" style="font-size:13px">  63.9%</tspan><tspan class="ice-body"> GPU capacity saved</tspan>
+    </text>
 
-  <!-- ══════════════════════════════════════════════════ -->
-  <!-- Legend & Config Chips                             -->
-  <!-- ══════════════════════════════════════════════════ -->
-  <!-- Legend -->
-  <rect fill="rgba(var(--ink), 0.28)" x="30" y="506" width="10" height="10" rx="2" />
-  <text class="ice-legend" x="46" y="515">Without aiDAPTIV</text>
-  <rect fill="#f7941d" x="160" y="506" width="10" height="10" rx="2" />
-  <text class="ice-legend" x="176" y="515">With aiDAPTIV</text>
-  <line class="ice-sla" x1="280" y1="511" x2="300" y2="511" />
-  <text class="ice-legend" x="306" y="515">SLA threshold</text>
+    <!-- TTFT chart -->
+    <text class="ice-axis" x="74" y="444" text-anchor="end">28s</text>
+    <text class="ice-axis" x="74" y="479" text-anchor="end">21s</text>
+    <text class="ice-axis" x="74" y="514" text-anchor="end">14s</text>
+    <text class="ice-axis" x="74" y="549" text-anchor="end">7s</text>
+    <text class="ice-axis" x="74" y="584" text-anchor="end">0</text>
+    <line class="ice-sla" x1="80" y1="523.0" x2="400" y2="523.0" />
+    <polyline class="ice-line-l" points="80,560.9 144,547.9 208,532.1 272,501.3 336,481.4 400,442.9" />
+    <polyline class="ice-line-r" points="80,572.2 144,565.3 208,555.5 272,546.4 336,534.6 400,523.4" />
+    <circle class="ice-dot-l" cx="80" cy="560.9" r="3" />
+    <circle class="ice-dot-l" cx="144" cy="547.9" r="3" />
+    <circle class="ice-dot-l" cx="208" cy="532.1" r="3" />
+    <circle class="ice-dot-l" cx="272" cy="501.3" r="3" />
+    <circle class="ice-dot-l" cx="336" cy="481.4" r="3" />
+    <circle class="ice-dot-l" cx="400" cy="442.9" r="3" />
+    <circle class="ice-dot-r" cx="80" cy="572.2" r="3" />
+    <circle class="ice-dot-r" cx="144" cy="565.3" r="3" />
+    <circle class="ice-dot-r" cx="208" cy="555.5" r="3" />
+    <circle class="ice-dot-r" cx="272" cy="546.4" r="3" />
+    <circle class="ice-dot-r" cx="336" cy="534.6" r="3" />
+    <circle class="ice-dot-r" cx="400" cy="523.4" r="3" />
 
-  <!-- Config chips -->
-  <rect class="ice-chip-bg" x="440" y="502" width="74" height="20" rx="10" />
-  <text class="ice-chip" x="477" y="515" text-anchor="middle">H200 ×1</text>
-  <rect class="ice-chip-bg" x="522" y="502" width="86" height="20" rx="10" />
-  <text class="ice-chip" x="565" y="515" text-anchor="middle">32K context</text>
-  <rect class="ice-chip-bg" x="616" y="502" width="86" height="20" rx="10" />
-  <text class="ice-chip" x="659" y="515" text-anchor="middle">TTFT ≤ 10.0s</text>
-  <rect class="ice-chip-bg" x="710" y="502" width="76" height="20" rx="10" />
-  <text class="ice-chip" x="748" y="515" text-anchor="middle">TP ≥ 20 t/s</text>
+    <!-- TPS chart -->
+    <text class="ice-axis" x="484" y="444" text-anchor="end">80</text>
+    <text class="ice-axis" x="484" y="479" text-anchor="end">60</text>
+    <text class="ice-axis" x="484" y="514" text-anchor="end">40</text>
+    <text class="ice-axis" x="484" y="549" text-anchor="end">20</text>
+    <text class="ice-axis" x="484" y="584" text-anchor="end">0</text>
+    <line class="ice-sla" x1="490" y1="545.0" x2="810" y2="545.0" />
+    <polyline class="ice-line-r" points="490,441.1 554,490.0 618,498.2 682,506.6 746,512.8 810,517.8" />
+    <polyline class="ice-line-l" points="490,523.0 554,531.8 618,546.7 682,556.0 746,557.3 810,562.3" />
+    <circle class="ice-dot-r" cx="490" cy="441.1" r="3" />
+    <circle class="ice-dot-r" cx="554" cy="490.0" r="3" />
+    <circle class="ice-dot-r" cx="618" cy="498.2" r="3" />
+    <circle class="ice-dot-r" cx="682" cy="506.6" r="3" />
+    <circle class="ice-dot-r" cx="746" cy="512.8" r="3" />
+    <circle class="ice-dot-r" cx="810" cy="517.8" r="3" />
+    <circle class="ice-dot-l" cx="490" cy="523.0" r="3" />
+    <circle class="ice-dot-l" cx="554" cy="531.8" r="3" />
+    <circle class="ice-dot-l" cx="618" cy="546.7" r="3" />
+    <circle class="ice-dot-l" cx="682" cy="556.0" r="3" />
+    <circle class="ice-dot-l" cx="746" cy="557.3" r="3" />
+    <circle class="ice-dot-l" cx="810" cy="562.3" r="3" />
 
+    <text class="ice-chip" x="565" y="647" text-anchor="middle">16K context</text>
+    <text class="ice-chip" x="654" y="647" text-anchor="middle">TTFT &#8804; 11.4s</text>
+  </g>
+  <!-- ══ Scene 3 · 32K ══ -->
+  <g class="scene s3">
+    <text class="ice-on" x="430" y="119" text-anchor="middle">32K</text>
+    <text class="ice-body" x="824" y="86" text-anchor="end">Multi-turn chat &#183; long documents</text>
 
+    <!-- TTFT SLA slider (tuned to maximize aiDAPTIV users) -->
+    <text class="ice-accent" x="402" y="190" text-anchor="end">&#8804; 20.6 s</text>
+    <rect class="ice-sfill" x="48" y="200" width="241" height="6" rx="3" />
+    <circle class="ice-thumb" cx="289" cy="203" r="7" />
+
+    <!-- CCU bars + values -->
+    <rect class="ice-bar-l" x="190" y="270" width="119" height="18" rx="4" />
+    <rect class="ice-bar-r" x="190" y="310" width="560" height="18" rx="4" />
+    <text class="ice-num"       x="816" y="286" text-anchor="end">17</text>
+    <text class="ice-body-s"    x="816" y="298" text-anchor="end">limited by TP</text>
+    <text class="ice-num-brand" x="816" y="326" text-anchor="end">80+</text>
+    <text class="ice-body-s"    x="816" y="338" text-anchor="end">meets SLA at 80+</text>
+
+    <!-- advantage combo -->
+    <text x="430" y="360" text-anchor="middle">
+      <tspan class="ice-stat" style="font-size:13px">+485%</tspan><tspan class="ice-body"> concurrent users  </tspan><tspan style="fill:rgba(var(--ink),0.25);font-weight:400">|</tspan><tspan class="ice-stat" style="font-size:13px">  79.4%</tspan><tspan class="ice-body"> GPU capacity saved</tspan>
+    </text>
+
+    <!-- TTFT chart -->
+    <text class="ice-axis" x="74" y="444" text-anchor="end">64s</text>
+    <text class="ice-axis" x="74" y="479" text-anchor="end">48s</text>
+    <text class="ice-axis" x="74" y="514" text-anchor="end">32s</text>
+    <text class="ice-axis" x="74" y="549" text-anchor="end">16s</text>
+    <text class="ice-axis" x="74" y="584" text-anchor="end">0</text>
+    <line class="ice-sla" x1="80" y1="534.9" x2="400" y2="534.9" />
+    <polyline class="ice-line-l" points="80,563.0 144,547.7 208,530.7 272,497.5 336,480.0 400,444.5" />
+    <polyline class="ice-line-r" points="80,573.6 144,567.9 208,562.8 272,552.3 336,546.5 400,535.1" />
+    <circle class="ice-dot-l" cx="80" cy="563.0" r="3" />
+    <circle class="ice-dot-l" cx="144" cy="547.7" r="3" />
+    <circle class="ice-dot-l" cx="208" cy="530.7" r="3" />
+    <circle class="ice-dot-l" cx="272" cy="497.5" r="3" />
+    <circle class="ice-dot-l" cx="336" cy="480.0" r="3" />
+    <circle class="ice-dot-l" cx="400" cy="444.5" r="3" />
+    <circle class="ice-dot-r" cx="80" cy="573.6" r="3" />
+    <circle class="ice-dot-r" cx="144" cy="567.9" r="3" />
+    <circle class="ice-dot-r" cx="208" cy="562.8" r="3" />
+    <circle class="ice-dot-r" cx="272" cy="552.3" r="3" />
+    <circle class="ice-dot-r" cx="336" cy="546.5" r="3" />
+    <circle class="ice-dot-r" cx="400" cy="535.1" r="3" />
+
+    <!-- TPS chart -->
+    <text class="ice-axis" x="484" y="444" text-anchor="end">70</text>
+    <text class="ice-axis" x="484" y="479" text-anchor="end">52</text>
+    <text class="ice-axis" x="484" y="514" text-anchor="end">35</text>
+    <text class="ice-axis" x="484" y="549" text-anchor="end">18</text>
+    <text class="ice-axis" x="484" y="584" text-anchor="end">0</text>
+    <line class="ice-sla" x1="490" y1="540.0" x2="810" y2="540.0" />
+    <polyline class="ice-line-r" points="490,447.4 554,497.6 618,488.7 682,496.3 746,500.8 810,507.6" />
+    <polyline class="ice-line-l" points="490,518.1 554,551.8 618,555.4 682,559.2 746,563.2 810,564.3" />
+    <circle class="ice-dot-r" cx="490" cy="447.4" r="3" />
+    <circle class="ice-dot-r" cx="554" cy="497.6" r="3" />
+    <circle class="ice-dot-r" cx="618" cy="488.7" r="3" />
+    <circle class="ice-dot-r" cx="682" cy="496.3" r="3" />
+    <circle class="ice-dot-r" cx="746" cy="500.8" r="3" />
+    <circle class="ice-dot-r" cx="810" cy="507.6" r="3" />
+    <circle class="ice-dot-l" cx="490" cy="518.1" r="3" />
+    <circle class="ice-dot-l" cx="554" cy="551.8" r="3" />
+    <circle class="ice-dot-l" cx="618" cy="555.4" r="3" />
+    <circle class="ice-dot-l" cx="682" cy="559.2" r="3" />
+    <circle class="ice-dot-l" cx="746" cy="563.2" r="3" />
+    <circle class="ice-dot-l" cx="810" cy="564.3" r="3" />
+
+    <text class="ice-chip" x="565" y="647" text-anchor="middle">32K context</text>
+    <text class="ice-chip" x="654" y="647" text-anchor="middle">TTFT &#8804; 20.6s</text>
+  </g>
+  <!-- ══ Scene 4 · 64K ══ -->
+  <g class="scene s4">
+    <text class="ice-on" x="592" y="119" text-anchor="middle">64K</text>
+    <text class="ice-body" x="824" y="86" text-anchor="end">Large codebase &#183; report analysis</text>
+
+    <!-- TTFT SLA slider (tuned to maximize aiDAPTIV users) -->
+    <text class="ice-accent" x="402" y="190" text-anchor="end">&#8804; 30.0 s</text>
+    <rect class="ice-sfill" x="48" y="200" width="354" height="6" rx="3" />
+    <circle class="ice-thumb" cx="402" cy="203" r="7" />
+
+    <!-- CCU bars + values -->
+    <rect class="ice-bar-l" x="190" y="270" width="12" height="18" rx="4" />
+    <rect class="ice-bar-r" x="190" y="310" width="434" height="18" rx="4" />
+    <text class="ice-num"       x="816" y="286" text-anchor="end">&lt;10</text>
+    <text class="ice-body-s"    x="816" y="298" text-anchor="end">SLA not met</text>
+    <text class="ice-num-brand" x="816" y="326" text-anchor="end">62</text>
+    <text class="ice-body-s"    x="816" y="338" text-anchor="end">limited by TTFT</text>
+
+    <!-- advantage combo -->
+    <text x="430" y="360" text-anchor="middle">
+      <tspan class="ice-stat" style="font-size:13px">&#8734;</tspan><tspan class="ice-body"> concurrent users  </tspan><tspan style="fill:rgba(var(--ink),0.25);font-weight:400">|</tspan><tspan class="ice-stat" style="font-size:13px">  100%</tspan><tspan class="ice-body"> GPU capacity saved</tspan>
+    </text>
+
+    <!-- TTFT chart -->
+    <text class="ice-axis" x="74" y="444" text-anchor="end">160s</text>
+    <text class="ice-axis" x="74" y="479" text-anchor="end">120s</text>
+    <text class="ice-axis" x="74" y="514" text-anchor="end">80s</text>
+    <text class="ice-axis" x="74" y="549" text-anchor="end">40s</text>
+    <text class="ice-axis" x="74" y="584" text-anchor="end">0</text>
+    <line class="ice-sla" x1="80" y1="553.8" x2="400" y2="553.8" />
+    <polyline class="ice-line-l" points="80,562.4 144,544.9 208,527.6 272,492.0 336,473.9 400,438.3" />
+    <polyline class="ice-line-r" points="80,575.3 144,571.1 208,566.8 272,558.6 336,554.4 400,546.6" />
+    <circle class="ice-dot-l" cx="80" cy="562.4" r="3" />
+    <circle class="ice-dot-l" cx="144" cy="544.9" r="3" />
+    <circle class="ice-dot-l" cx="208" cy="527.6" r="3" />
+    <circle class="ice-dot-l" cx="272" cy="492.0" r="3" />
+    <circle class="ice-dot-l" cx="336" cy="473.9" r="3" />
+    <circle class="ice-dot-l" cx="400" cy="438.3" r="3" />
+    <circle class="ice-dot-r" cx="80" cy="575.3" r="3" />
+    <circle class="ice-dot-r" cx="144" cy="571.1" r="3" />
+    <circle class="ice-dot-r" cx="208" cy="566.8" r="3" />
+    <circle class="ice-dot-r" cx="272" cy="558.6" r="3" />
+    <circle class="ice-dot-r" cx="336" cy="554.4" r="3" />
+    <circle class="ice-dot-r" cx="400" cy="546.6" r="3" />
+
+    <!-- TPS chart -->
+    <text class="ice-axis" x="484" y="444" text-anchor="end">50</text>
+    <text class="ice-axis" x="484" y="479" text-anchor="end">38</text>
+    <text class="ice-axis" x="484" y="514" text-anchor="end">25</text>
+    <text class="ice-axis" x="484" y="549" text-anchor="end">12</text>
+    <text class="ice-axis" x="484" y="584" text-anchor="end">0</text>
+    <line class="ice-sla" x1="490" y1="524.0" x2="810" y2="524.0" />
+    <polyline class="ice-line-r" points="490,440.8 554,451.8 618,443.7 682,471.6 746,465.1 810,473.8" />
+    <polyline class="ice-line-l" points="490,536.9 554,552.3 618,555.1 682,560.4 746,561.1 810,561.9" />
+    <circle class="ice-dot-r" cx="490" cy="440.8" r="3" />
+    <circle class="ice-dot-r" cx="554" cy="451.8" r="3" />
+    <circle class="ice-dot-r" cx="618" cy="443.7" r="3" />
+    <circle class="ice-dot-r" cx="682" cy="471.6" r="3" />
+    <circle class="ice-dot-r" cx="746" cy="465.1" r="3" />
+    <circle class="ice-dot-r" cx="810" cy="473.8" r="3" />
+    <circle class="ice-dot-l" cx="490" cy="536.9" r="3" />
+    <circle class="ice-dot-l" cx="554" cy="552.3" r="3" />
+    <circle class="ice-dot-l" cx="618" cy="555.1" r="3" />
+    <circle class="ice-dot-l" cx="682" cy="560.4" r="3" />
+    <circle class="ice-dot-l" cx="746" cy="561.1" r="3" />
+    <circle class="ice-dot-l" cx="810" cy="561.9" r="3" />
+
+    <text class="ice-chip" x="565" y="647" text-anchor="middle">64K context</text>
+    <text class="ice-chip" x="654" y="647" text-anchor="middle">TTFT &#8804; 30.0s</text>
+  </g>
+  <!-- ══ Scene 5 · 128K ══ -->
+  <g class="scene s5">
+    <text class="ice-on" x="754" y="119" text-anchor="middle">128K</text>
+    <text class="ice-body" x="824" y="86" text-anchor="end">Full book &#183; deep research</text>
+
+    <!-- TTFT SLA slider (tuned to maximize aiDAPTIV users) -->
+    <text class="ice-accent" x="402" y="190" text-anchor="end">&#8804; 30.0 s</text>
+    <rect class="ice-sfill" x="48" y="200" width="354" height="6" rx="3" />
+    <circle class="ice-thumb" cx="402" cy="203" r="7" />
+
+    <!-- CCU bars + values -->
+    <rect class="ice-bar-l" x="190" y="270" width="12" height="18" rx="4" />
+    <rect class="ice-bar-r" x="190" y="310" width="238" height="18" rx="4" />
+    <text class="ice-num"       x="816" y="286" text-anchor="end">&lt;10</text>
+    <text class="ice-body-s"    x="816" y="298" text-anchor="end">SLA not met</text>
+    <text class="ice-num-brand" x="816" y="326" text-anchor="end">34</text>
+    <text class="ice-body-s"    x="816" y="338" text-anchor="end">limited by TTFT</text>
+
+    <!-- advantage combo -->
+    <text x="430" y="360" text-anchor="middle">
+      <tspan class="ice-stat" style="font-size:13px">&#8734;</tspan><tspan class="ice-body"> concurrent users  </tspan><tspan style="fill:rgba(var(--ink),0.25);font-weight:400">|</tspan><tspan class="ice-stat" style="font-size:13px">  100%</tspan><tspan class="ice-body"> GPU capacity saved</tspan>
+    </text>
+
+    <!-- TTFT chart -->
+    <text class="ice-axis" x="74" y="444" text-anchor="end">480s</text>
+    <text class="ice-axis" x="74" y="479" text-anchor="end">360s</text>
+    <text class="ice-axis" x="74" y="514" text-anchor="end">240s</text>
+    <text class="ice-axis" x="74" y="549" text-anchor="end">120s</text>
+    <text class="ice-axis" x="74" y="584" text-anchor="end">0</text>
+    <line class="ice-sla" x1="80" y1="571.2" x2="400" y2="571.2" />
+    <polyline class="ice-line-l" points="80,562.7 144,546.2 208,529.3 272,496.5 336,480.0 400,446.9" />
+    <polyline class="ice-line-r" points="80,577.2 144,574.7 208,572.2 272,567.2 336,564.3 400,559.4" />
+    <circle class="ice-dot-l" cx="80" cy="562.7" r="3" />
+    <circle class="ice-dot-l" cx="144" cy="546.2" r="3" />
+    <circle class="ice-dot-l" cx="208" cy="529.3" r="3" />
+    <circle class="ice-dot-l" cx="272" cy="496.5" r="3" />
+    <circle class="ice-dot-l" cx="336" cy="480.0" r="3" />
+    <circle class="ice-dot-l" cx="400" cy="446.9" r="3" />
+    <circle class="ice-dot-r" cx="80" cy="577.2" r="3" />
+    <circle class="ice-dot-r" cx="144" cy="574.7" r="3" />
+    <circle class="ice-dot-r" cx="208" cy="572.2" r="3" />
+    <circle class="ice-dot-r" cx="272" cy="567.2" r="3" />
+    <circle class="ice-dot-r" cx="336" cy="564.3" r="3" />
+    <circle class="ice-dot-r" cx="400" cy="559.4" r="3" />
+
+    <!-- TPS chart -->
+    <text class="ice-axis" x="484" y="444" text-anchor="end">60</text>
+    <text class="ice-axis" x="484" y="479" text-anchor="end">45</text>
+    <text class="ice-axis" x="484" y="514" text-anchor="end">30</text>
+    <text class="ice-axis" x="484" y="549" text-anchor="end">15</text>
+    <text class="ice-axis" x="484" y="584" text-anchor="end">0</text>
+    <line class="ice-sla" x1="490" y1="533.3" x2="810" y2="533.3" />
+    <polyline class="ice-line-r" points="490,452.5 554,475.3 618,487.3 682,477.7 746,479.7 810,489.4" />
+    <polyline class="ice-line-l" points="490,553.0 554,562.1 618,565.2 682,567.4 746,568.1 810,568.9" />
+    <circle class="ice-dot-r" cx="490" cy="452.5" r="3" />
+    <circle class="ice-dot-r" cx="554" cy="475.3" r="3" />
+    <circle class="ice-dot-r" cx="618" cy="487.3" r="3" />
+    <circle class="ice-dot-r" cx="682" cy="477.7" r="3" />
+    <circle class="ice-dot-r" cx="746" cy="479.7" r="3" />
+    <circle class="ice-dot-r" cx="810" cy="489.4" r="3" />
+    <circle class="ice-dot-l" cx="490" cy="553.0" r="3" />
+    <circle class="ice-dot-l" cx="554" cy="562.1" r="3" />
+    <circle class="ice-dot-l" cx="618" cy="565.2" r="3" />
+    <circle class="ice-dot-l" cx="682" cy="567.4" r="3" />
+    <circle class="ice-dot-l" cx="746" cy="568.1" r="3" />
+    <circle class="ice-dot-l" cx="810" cy="568.9" r="3" />
+
+    <text class="ice-chip" x="565" y="647" text-anchor="middle">128K context</text>
+    <text class="ice-chip" x="654" y="647" text-anchor="middle">TTFT &#8804; 30.0s</text>
+  </g>
 </svg>

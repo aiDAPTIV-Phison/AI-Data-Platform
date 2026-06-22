@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224 130" fill="none" role="img" aria-label="GPU Concurrency — vGPU partitions serving parallel requests">
+  <style>
+    svg { color-scheme: light dark; --ink: 255, 255, 255; }
+    @media (prefers-color-scheme: light) { svg { --ink: 30, 32, 44; } }
+
+    text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", sans-serif; }
+    .conc-lbl   { fill: rgba(var(--ink), 0.48); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; }
+    .conc-cap   { fill: rgba(var(--ink), 0.42); font-size: 9px; font-weight: 600; letter-spacing: 0.05em; }
+    .conc-host  { fill: rgba(var(--ink), 0.06); stroke: rgba(var(--ink), 0.45); stroke-width: 1.2; }
+    .conc-part  { fill: rgba(var(--ink), 0.14); stroke: rgba(var(--ink), 0.40); stroke-width: 0.8; animation: concFlicker 2.4s ease-in-out infinite; }
+    .conc-div   { stroke: rgba(var(--ink), 0.20); stroke-width: 0.5; stroke-dasharray: 2 2; }
+    .conc-stream { stroke: rgba(247,148,29,0.85); stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: 4 3; animation: concFlow 0.9s linear infinite; }
+    .conc-in    { stroke: rgba(var(--ink), 0.45); stroke-width: 1; stroke-linecap: round; stroke-dasharray: 3 3; animation: concFlowIn 0.9s linear infinite; }
+    .conc-req   { fill: none; stroke: rgba(247,148,29,0.85); stroke-width: 0.8; animation: concPulse 2s ease-in-out infinite; }
+    .conc-dot   { fill: rgba(247,148,29,0.85); animation: concFlicker 2s ease-in-out infinite; }
+    .conc-act   { fill: rgba(247,148,29,1); animation: concActPulse 2.2s ease-in-out infinite; }
+
+    @keyframes concFlicker  { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+    @keyframes concFlow     { to { stroke-dashoffset: -7; } }
+    @keyframes concFlowIn   { to { stroke-dashoffset: 6; } }
+    @keyframes concPulse    { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+    @keyframes concActPulse { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.4; } }
+  </style>
+
+  <!-- Host GPU frame -->
+  <rect class="conc-host" x="60" y="22" width="48" height="96" rx="6" />
+  <text class="conc-lbl" x="70" y="16">GPU</text>
+
+  <!-- vGPU partitions -->
+  <rect class="conc-part" x="66" y="30"  width="36" height="16" rx="3" />
+  <rect class="conc-part" x="66" y="52"  width="36" height="16" rx="3" style="animation-delay:0.3s" />
+  <rect class="conc-part" x="66" y="74"  width="36" height="16" rx="3" style="animation-delay:0.6s" />
+  <rect class="conc-part" x="66" y="96"  width="36" height="16" rx="3" style="animation-delay:0.9s" />
+
+  <!-- Partition dividers -->
+  <line class="conc-div" x1="64" y1="50"  x2="104" y2="50" />
+  <line class="conc-div" x1="64" y1="72"  x2="104" y2="72" />
+  <line class="conc-div" x1="64" y1="94"  x2="104" y2="94" />
+
+  <!-- Incoming requests (left) -->
+  <line class="conc-in" x1="20" y1="37"  x2="56" y2="37"  style="animation-delay:0.3s" />
+  <line class="conc-in" x1="20" y1="59"  x2="56" y2="59"  style="animation-delay:0.6s" />
+  <line class="conc-in" x1="20" y1="81"  x2="56" y2="81"  style="animation-delay:0.9s" />
+  <line class="conc-in" x1="20" y1="103" x2="56" y2="103" style="animation-delay:1.2s" />
+
+  <!-- Outgoing streams (right) -->
+  <line class="conc-stream" x1="108" y1="37"  x2="170" y2="37"  style="animation-delay:0.1s" />
+  <line class="conc-stream" x1="108" y1="59"  x2="170" y2="59"  style="animation-delay:0.4s" />
+  <line class="conc-stream" x1="108" y1="81"  x2="170" y2="81"  style="animation-delay:0.7s" />
+  <line class="conc-stream" x1="108" y1="103" x2="170" y2="103" style="animation-delay:1.0s" />
+
+  <!-- Request dots -->
+  <circle class="conc-req" cx="176" cy="37"  r="4" style="animation-delay:0.1s" />
+  <circle class="conc-dot" cx="176" cy="37"  r="1.5" style="animation-delay:0.25s" />
+  <circle class="conc-req" cx="176" cy="59"  r="4" style="animation-delay:0.4s" />
+  <circle class="conc-dot" cx="176" cy="59"  r="1.5" style="animation-delay:0.55s" />
+  <circle class="conc-req" cx="176" cy="81"  r="4" style="animation-delay:0.7s" />
+  <circle class="conc-dot" cx="176" cy="81"  r="1.5" style="animation-delay:0.85s" />
+  <circle class="conc-req" cx="176" cy="103" r="4" style="animation-delay:1.0s" />
+  <circle class="conc-dot" cx="176" cy="103" r="1.5" style="animation-delay:1.15s" />
+
+  <!-- Labels -->
+  <text class="conc-cap" x="142" y="122">×4 concurrent</text>
+  <circle class="conc-act" cx="84" cy="122" r="3" />
+</svg>
