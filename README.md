@@ -4,26 +4,23 @@
   <img src="docs/phison-aidp.svg" width="480" alt="Phison AI Data Platform" />
 </a>
 
-### Enterprise AI infrastructure — from prototype to production
+#### Enterprise AI infrastructure
 
 *Deploy faster · Raise GPU utilization · Cut the cost and complexity of running AI at scale*
 
 <strong>English</strong> · <a href="README.zh-TW.md">繁體中文</a>
 
-[Website](https://phison.ai) · [Ecosystem](https://phison.ai/ecosystem/) · [AISO](https://phison.ai/aiso/) · [Contact](https://phison.ai/contact/) · [Discussions](https://github.com/AIDataPlatform/Community/discussions)
+[Website](https://phison.ai) · [Ecosystem](https://phison.ai/ecosystem/) · [AISO](https://phison.ai/aiso/) · [Contact](https://phison.ai/contact/) · [Discussions](https://github.com/AIDataPlatform/Community/discussions) · [Phison](https://www.phison.com)
 
 [![GPU Server](https://img.shields.io/badge/GPU_Server-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/gpu-server/)
 [![Cache Server](https://img.shields.io/badge/Cache_Server-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/cache-server/)
 [![Storage Server](https://img.shields.io/badge/Storage_Server-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/storage-server/)
 [![HCI](https://img.shields.io/badge/HCI-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/hci/)
-[![Made by Phison](https://img.shields.io/badge/Made_by-Phison-f7941d?style=flat-square)](https://www.phison.com)
 
 </div>
 
 <p align="center">
-  Most organizations can build an AI prototype, but far fewer can efficiently deploy, run, and scale AI in production.<br><br>
-  Phison AI Data Platform unifies infrastructure, resource management, AI middleware, and application services into a single platform,<br>
-  helping organizations deploy faster, raise GPU utilization, and lower the cost and complexity of running AI at scale.
+  Most organizations can build an AI prototype, but far fewer can efficiently deploy, run, and scale AI in production. Phison AI Data Platform unifies infrastructure, resource management, AI middleware, and application services into a single platform, helping organizations deploy faster, raise GPU utilization, and lower the cost and complexity of running AI at scale.
 </p>
 
 <!-- TODO: add homepage hero screenshot or GIF -->

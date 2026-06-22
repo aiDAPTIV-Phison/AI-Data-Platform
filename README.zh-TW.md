@@ -4,26 +4,23 @@
   <img src="docs/phison-aidp.svg" width="480" alt="Phison AI Data Platform" />
 </a>
 
-### 企業級 AI 基礎平台 — 從原型到量產
+#### 企業級 AI 基礎平台
 
 *加速部署 · 提升 GPU 利用率 · 降低大規模 AI 的成本與複雜度*
 
 <a href="README.md">English</a> · <strong>繁體中文</strong>
 
-[官方網站](https://phison.ai) · [生態系](https://phison.ai/ecosystem/) · [AISO](https://phison.ai/aiso/) · [聯絡我們](https://phison.ai/contact/) · [社群討論](https://github.com/AIDataPlatform/Community/discussions) 
+[官方網站](https://phison.ai) · [生態系](https://phison.ai/ecosystem/) · [AISO](https://phison.ai/aiso/) · [聯絡我們](https://phison.ai/contact/) · [社群討論](https://github.com/AIDataPlatform/Community/discussions) · [Phison](https://www.phison.com)
 
 [![GPU Server](https://img.shields.io/badge/GPU_Server-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/gpu-server/)
 [![Cache Server](https://img.shields.io/badge/Cache_Server-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/cache-server/)
 [![Storage Server](https://img.shields.io/badge/Storage_Server-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/storage-server/)
 [![HCI](https://img.shields.io/badge/HCI-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/hci/)
-[![Made by Phison](https://img.shields.io/badge/Made_by-Phison-f7941d?style=flat-square)](https://www.phison.com)
 
 </div>
 
 <p align="center">
-  大多數組織都能建構 AI 原型，但遠少數能夠在生產環境中高效部署、運行並擴展 AI。<br><br>
-  Phison AI Data Platform 將基礎設施、資源管理、AI 中介軟體和應用服務整合為單一平台，<br>
-  協助組織加快部署速度、提升 GPU 利用率，並降低大規模運行 AI 的成本與複雜度。
+  大多數組織都能建構 AI 原型，但遠少數能夠在生產環境中高效部署、運行並擴展 AI。Phison AI Data Platform 將基礎設施、資源管理、AI 中介軟體和應用服務整合為單一平台，協助組織加快部署速度、提升 GPU 利用率，並降低大規模運行 AI 的成本與複雜度。
 </p>
 
 
