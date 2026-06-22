@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://phison.ai">
-  <img src="docs/Phison-logo.svg" width="260" alt="Phison" />
+  <img src="docs/phison-aidp.svg" width="260" alt="Phison" />
 </a>
 
 # AI Data Platform
@@ -227,27 +227,7 @@ Once produced, KV cache is shared across the entire cluster. Long prompts, multi
 
 > **500% More Concurrent Users — Same GPU Hardware**
 
-Compare concurrent user capacity and inference metrics with and without aiDAPTIV on the same GPU server infrastructure. aiDAPTIV expands effective AI memory in software — no extra GPUs required. Same hardware, up to **500% more concurrent users**.
-
-<table>
-<tr>
-<td align="center" width="33%">
-  <h2><strong>500% UP</strong></h2>
-  <h3>Concurrent Users</h3>
-  <p>Up to 5× more concurrent users on the same GPU infrastructure — validated on RTX PRO 6000 and H200 nodes.</p>
-</td>
-<td align="center" width="33%">
-  <h2><strong>5×</strong></h2>
-  <h3>Higher Concurrent Users</h3>
-  <p>Same GPU footprint, more than five times the concurrency — prefill offloaded to aiDAPTIV Cache Memory.</p>
-</td>
-<td align="center" width="33%">
-  <h2><strong>800B</strong></h2>
-  <h3>Parameter Models</h3>
-  <p>Train and serve LLMs up to 800B parameters with aiDAPTIV memory extension.</p>
-</td>
-</tr>
-</table>
+Compare concurrent user capacity and inference metrics with and without aiDAPTIV on the same GPU server infrastructure. aiDAPTIV expands effective AI memory in software — no extra GPUs required. Same hardware, up to **500% more concurrent users**, and the headroom to train and serve LLMs up to **800B parameters**.
 
 <p align="center">
   <img src="docs/svg-gpu-results-en.svg" alt="GPU Server concurrent users with and without aiDAPTIV" width="800" />
@@ -272,45 +252,8 @@ Compare concurrent user capacity and inference metrics with and without aiDAPTIV
 
 Storage Server converges Block, File, and Object storage onto a single cluster — eliminating silos without sacrificing performance or protocol fidelity. One NVMe cluster serves Kubernetes CSI, NFS/SMB, and S3 workloads simultaneously, with per-volume policy controls for IOPS limits, snapshot schedules, and replication targets.
 
-<table>
-<tr>
-<td align="center" width="33%">
-  <h2><strong>~460 TB</strong></h2>
-  <h3>Usable Capacity</h3>
-  <p>Usable capacity from a 3-node NVMe cluster with EC 2+1 erasure coding.</p>
-</td>
-<td align="center" width="33%">
-  <h2><strong>~20 GB/s</strong></h2>
-  <h3>Read Throughput</h3>
-  <p>100Gb network and Pascari NVMe SSDs deliver aggregate read bandwidth for AI datasets.</p>
-</td>
-<td align="center" width="33%">
-  <h2><strong>~33K</strong></h2>
-  <h3>Random Read IOPS</h3>
-  <p>Block, File, and S3 Object access on a single cluster — no storage silos.</p>
-</td>
-</tr>
-</table>
-
 <p align="center">
   <img src="docs/svg-storage-access-en.svg" alt="Three access modes converging on one unified storage platform" width="800" />
 </p>
-
-<table>
-<tr>
-<td width="33%" valign="top">
-  <h4>EC 2+1 Erasure Coding</h4>
-  <p>Tolerates simultaneous SSD and node failures with automatic rebuild — 66% usable efficiency, superior to 3-way replication.</p>
-</td>
-<td width="33%" valign="top">
-  <h4>Automatic Failure-Domain Rebalancing</h4>
-  <p>Hot-add SSDs or nodes and the platform redistributes data across the expanded cluster with zero downtime.</p>
-</td>
-<td width="33%" valign="top">
-  <h4>Unified External Plane</h4>
-  <p>One cluster serves Block, File, and S3 simultaneously with per-volume policy controls and protocol fidelity.</p>
-</td>
-</tr>
-</table>
 
 ---
