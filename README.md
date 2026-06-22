@@ -23,27 +23,6 @@
   Most organizations can build an AI prototype, but far fewer can efficiently deploy, run, and scale AI in production. Phison AI Data Platform unifies infrastructure, resource management, AI middleware, and application services into a single platform, helping organizations deploy faster, raise GPU utilization, and lower the cost and complexity of running AI at scale.
 </p>
 
-<!-- TODO: add homepage hero screenshot or GIF -->
-
-<br>
-
-<table>
-<tr>
-<td align="center" width="33%">
-  <h3><strong>Day 1</strong></h3>
-  <h3>Ready to Run</h3>
-</td>
-<td align="center" width="33%">
-  <h3><strong>1/5</strong></h3>
-  <h3>Hardware Budget</h3>
-</td>
-<td align="center" width="33%">
-  <h3><strong>Anywhere</strong></h3>
-  <h3>Ask AI</h3>
-</td>
-</tr>
-</table>
-
 ---
 
 ## What solutions does Phison provide?

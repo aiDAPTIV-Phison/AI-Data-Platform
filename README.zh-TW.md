@@ -23,26 +23,6 @@
   大多數組織都能建構 AI 原型，但遠少數能夠在生產環境中高效部署、運行並擴展 AI。Phison AI Data Platform 將基礎設施、資源管理、AI 中介軟體和應用服務整合為單一平台，協助組織加快部署速度、提升 GPU 利用率，並降低大規模運行 AI 的成本與複雜度。
 </p>
 
-
-<br>
-
-<table>
-<tr>
-<td align="center" width="33%">
-  <h3><strong>Day 1</strong></h3>
-  <h3>開機即用</h3>
-</td>
-<td align="center" width="33%">
-  <h3><strong>1/5</strong></h3>
-  <h3>硬體預算</h3>
-</td>
-<td align="center" width="33%">
-  <h3><strong>Anywhere</strong></h3>
-  <h3>詢問 AI</h3>
-</td>
-</tr>
-</table>
-
 ---
 
 ## 群聯提供哪些解決方案？
