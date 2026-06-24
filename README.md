@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://phison.ai">
+<a href="https://www.phison.ai">
   <img src="docs/phison-aidp.svg" width="480" alt="Phison AI Data Platform" />
 </a>
 
@@ -10,12 +10,12 @@
 
 <strong>English</strong> · <a href="README.zh-TW.md">繁體中文</a>
 
-[Website](https://phison.ai) · [Ecosystem](https://phison.ai/ecosystem/) · [AISO](https://phison.ai/aiso/) · [Contact](https://phison.ai/contact/) · [Discussions](https://github.com/AIDataPlatform/Community/discussions) · [Phison](https://www.phison.com)
+[Website](https://www.phison.ai) · [Ecosystem](https://www.phison.ai/ecosystem/) · [AISO](https://www.phison.ai/aiso/) · [Contact](https://www.phison.ai/contact/) · [Discussions](https://github.com/AIDataPlatform/Community/discussions) · [Phison](https://www.phison.com)
 
-[![GPU Server](https://img.shields.io/badge/GPU_Server-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/gpu-server/)
-[![Cache Server](https://img.shields.io/badge/Cache_Server-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/cache-server/)
-[![Storage Server](https://img.shields.io/badge/Storage_Server-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/storage-server/)
-[![HCI](https://img.shields.io/badge/HCI-F7941D?style=for-the-badge&logoColor=white)](https://phison.ai/hci/)
+[![GPU Server](https://img.shields.io/badge/GPU_Server-F7941D?style=for-the-badge&logoColor=white)](https://www.phison.ai/gpu-server/)
+[![Cache Server](https://img.shields.io/badge/Cache_Server-F7941D?style=for-the-badge&logoColor=white)](https://www.phison.ai/cache-server/)
+[![Storage Server](https://img.shields.io/badge/Storage_Server-F7941D?style=for-the-badge&logoColor=white)](https://www.phison.ai/storage-server/)
+[![HCI](https://img.shields.io/badge/HCI-F7941D?style=for-the-badge&logoColor=white)](https://www.phison.ai/hci/)
 
 </div>
 
@@ -86,7 +86,7 @@ Curated, AI-ready open-source components (frameworks, queues, databases, and too
 
 A hyper-converged control plane managing heterogeneous GPU/XPU, storage, and VMs — pooling mixed-brand, mixed-generation hardware centrally.
 
-<a href="https://phison.ai/hci/"><img src="https://img.shields.io/badge/Phison_HCI-F7941D?style=for-the-badge&logo=cloud&logoColor=white" alt="Phison HCI" /></a>
+<a href="https://www.phison.ai/hci/"><img src="https://img.shields.io/badge/Phison_HCI-F7941D?style=for-the-badge&logo=cloud&logoColor=white" alt="Phison HCI" /></a>
 
 <p align="center">
   <img src="docs/svg-arch-l2.svg" alt="L2 — Hyper-Converged Infrastructure Software Layer" width="480" />
@@ -96,9 +96,9 @@ A hyper-converged control plane managing heterogeneous GPU/XPU, storage, and VMs
 
 Integrates GPU, CPU, cache, and storage over high-speed interconnects to form the compute and data backbone.
 
-<a href="https://phison.ai/gpu-server/"><img src="https://img.shields.io/badge/GPU_Server-F7941D?style=for-the-badge&logo=server&logoColor=white" alt="GPU Server" /></a>
-<a href="https://phison.ai/cache-server/"><img src="https://img.shields.io/badge/Cache_Server-F7941D?style=for-the-badge&logo=database&logoColor=white" alt="Cache Server" /></a>
-<a href="https://phison.ai/storage-server/"><img src="https://img.shields.io/badge/Storage_Server-F7941D?style=for-the-badge&logo=hard-drive&logoColor=white" alt="Storage Server" /></a>
+<a href="https://www.phison.ai/gpu-server/"><img src="https://img.shields.io/badge/GPU_Server-F7941D?style=for-the-badge&logo=server&logoColor=white" alt="GPU Server" /></a>
+<a href="https://www.phison.ai/cache-server/"><img src="https://img.shields.io/badge/Cache_Server-F7941D?style=for-the-badge&logo=database&logoColor=white" alt="Cache Server" /></a>
+<a href="https://www.phison.ai/storage-server/"><img src="https://img.shields.io/badge/Storage_Server-F7941D?style=for-the-badge&logo=hard-drive&logoColor=white" alt="Storage Server" /></a>
 
 <p align="center">
   <img src="docs/svg-arch-l1.svg" alt="L1 — Infrastructure Layer" width="480" />
